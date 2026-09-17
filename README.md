@@ -1,8 +1,8 @@
 # LLM Robotics Playground 🤖
 
-See what LLMs and VLMs can make robots do.
+A library of experiments using frontier LLMs/VLMs for robotics tasks, currently focusing on GPT-6 Astra.
 
-Experiments in MuJoCo, from untangling headphones and carrying objects to writing on a whiteboard and drawing with a pencil. Watch the demos, replay the runs, or try the same tasks with another model.
+Each experiment includes a MuJoCo environment, controller code, and a recorded run. Current tasks cover cable untangling, mobile manipulation, writing, and drawing.
 
 | Experiment | Preview | Demo |
 | --- | --- | --- |

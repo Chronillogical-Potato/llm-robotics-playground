@@ -1,7 +1,7 @@
 [project]
 name = "llm-robotics-playground"
 version = "0.1.0"
-description = "Explore what LLMs and VLMs can make robots do in MuJoCo."
+description = "A library of experiments using frontier LLMs/VLMs for robotics tasks, currently focusing on GPT-6 Astra."
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
