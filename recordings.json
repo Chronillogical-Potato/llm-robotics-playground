@@ -1,0 +1,76 @@
+{
+  "tag": "v0.1.0",
+  "artifacts": {
+    "headphone-untangling": {
+      "video": {
+        "file": "headphone-untangling.mp4",
+        "bytes": 3394892,
+        "sha256": "3d06117dc10aca72365488059698211cbf27be4a399d5e0bfb9a2b6b222d0126"
+      },
+      "replay": {
+        "file": "headphone-untangling-replay.tar.gz",
+        "bytes": 21568795,
+        "sha256": "ad573504a01613da177cfe78aeff8d1675a89ae7dec7808ef49f7c94a002d84d"
+      },
+      "replay_files": [
+        "two_clusters_current.json",
+        "two_clusters_current.npz",
+        "two_clusters_current_start.npz",
+        "two_clusters_current_trajectory.npz",
+        "two_clusters_wide_render.json"
+      ]
+    },
+    "robo-spider": {
+      "video": {
+        "file": "robo-spider.mp4",
+        "bytes": 57779951,
+        "sha256": "01b577d026ff02d3547aee7dd99464aa4f7e05644712895383c07ba132e9943d"
+      },
+      "replay": {
+        "file": "robo-spider-replay.tar.gz",
+        "bytes": 1603938,
+        "sha256": "2f8e044514a5b36f39ed4076abad18c46882de586081c40babfc252f334071f2"
+      },
+      "replay_files": [
+        "action_results.json",
+        "action_state.npz",
+        "stages.json",
+        "trajectory.npz"
+      ]
+    },
+    "fibonacci-writing": {
+      "video": {
+        "file": "fibonacci-writing.mp4",
+        "bytes": 33238328,
+        "sha256": "8f78af9fc8ee7c95d1a8502d30113ffb0b550c0f63eea934059184ff6169ec04"
+      },
+      "replay": {
+        "file": "fibonacci-writing-replay.tar.gz",
+        "bytes": 6884957,
+        "sha256": "d2bb516a2ebc740d6afb022957cf9e6cc0a73ea5dc1756beca377019a5ebb162"
+      },
+      "replay_files": [
+        "ending_episode.npz",
+        "ending_results.json",
+        "episode.npz",
+        "results.json"
+      ]
+    },
+    "dove-drawing": {
+      "video": {
+        "file": "dove-drawing.mp4",
+        "bytes": 11861653,
+        "sha256": "5b0a76f3f440401e8c5f7df88d41fe35396fb60174baa6836e449c43d7345bae"
+      },
+      "replay": {
+        "file": "dove-drawing-replay.tar.gz",
+        "bytes": 8716248,
+        "sha256": "642a34ee062a9bb7f904b1f29c7c843b567bce4bfb6a335765ce75ec1633992c"
+      },
+      "replay_files": [
+        "physical_dove_episode.npz",
+        "physical_dove_results.json"
+      ]
+    }
+  }
+}

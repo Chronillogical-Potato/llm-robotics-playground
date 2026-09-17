@@ -1,0 +1,423 @@
+<mujoco model="DOVE / frictional pre-grasp test">
+  <compiler angle="radian" meshdir="." />
+  <option integrator="implicitfast" timestep="0.002" gravity="0 0 -9.81" cone="elliptic" iterations="80" impratio="10" />
+  <default>
+    <default class="visual">
+      <geom type="mesh" contype="0" conaffinity="0" group="2" rgba="0.75294 0.75294 0.75294 1" />
+    </default>
+    <default class="collision">
+      <geom type="mesh" group="3" />
+    </default>
+    <default class="large_actuator">
+      <position kp="2000" kv="100" forcerange="-105 105" />
+    </default>
+    <default class="small_actuator">
+      <position kp="500" kv="50" forcerange="-52 52" />
+    </default>
+    <site size="0.001" rgba="0.5 0.5 0.5 0.3" group="4" />
+    <joint damping="1" armature=".025" />
+    <geom friction=".55 .005 .0001" solref=".008 1" solimp=".95 .99 .001" />
+    <default class="shadow_root">
+      <default class="right_hand">
+        <mesh scale="0.001 0.001 0.001" />
+        <joint axis="1 0 0" damping="0.05" armature="0.0002" frictionloss="0.01" />
+        <position forcerange="-1 1" />
+        <default class="wrist">
+          <joint damping="0.5" />
+          <default class="wrist_y">
+            <joint axis="0 1 0" range="-0.523599 0.174533" />
+            <position kp="10" ctrlrange="-0.523599 0.174533" forcerange="-10 10" />
+          </default>
+          <default class="wrist_x">
+            <joint range="-0.698132 0.488692" />
+            <position kp="8" ctrlrange="-0.698132 0.488692" forcerange="-5 5" />
+          </default>
+        </default>
+        <default class="thumb">
+          <default class="thbase">
+            <joint axis="0 0 -1" range="-1.0472 1.0472" />
+            <position kp="0.4" ctrlrange="-1.0472 1.0472" forcerange="-3 3" />
+          </default>
+          <default class="thproximal">
+            <joint range="0 1.22173" />
+            <position ctrlrange="0 1.22173" forcerange="-2 2" />
+          </default>
+          <default class="thhub">
+            <joint range="-0.20944 0.20944" />
+            <position kp="0.5" ctrlrange="-0.20944 0.20944" />
+          </default>
+          <default class="thmiddle">
+            <joint axis="0 -1 0" range="-0.698132 0.698132" />
+            <position kp="1.5" ctrlrange="-0.698132 0.698132" />
+          </default>
+          <default class="thdistal">
+            <joint range="-0.261799 1.5708" />
+            <position ctrlrange="-0.261799 1.5708" />
+          </default>
+        </default>
+        <default class="metacarpal">
+          <joint axis="0.573576 0 0.819152" range="0 0.785398" />
+          <position ctrlrange="0 0.785398" />
+        </default>
+        <default class="knuckle">
+          <joint axis="0 -1 0" range="-0.349066 0.349066" />
+          <position ctrlrange="-0.349066 0.349066" />
+        </default>
+        <default class="proximal">
+          <joint range="-0.261799 1.5708" />
+          <position ctrlrange="-0.261799 1.5708" />
+        </default>
+        <default class="middle_distal">
+          <joint range="0 1.5708" />
+          <position kp="0.5" ctrlrange="0 3.1415" />
+        </default>
+        <default class="plastic">
+          <geom solimp="0.5 0.99 0.0001" solref="0.005 1" />
+          <default class="plastic_visual">
+            <geom type="mesh" material="black" contype="0" conaffinity="0" group="2" />
+          </default>
+          <default class="plastic_collision">
+            <geom group="3" />
+          </default>
+        </default>
+      </default>
+      <joint damping=".05" armature=".0002" />
+    </default>
+  </default>
+  <asset>
+    <mesh name="base_link" file="../../assets/kinova_gen3/assets/base_link.stl" />
+    <mesh name="shoulder_link" file="../../assets/kinova_gen3/assets/shoulder_link.stl" />
+    <mesh name="half_arm_1_link" file="../../assets/kinova_gen3/assets/half_arm_1_link.stl" />
+    <mesh name="half_arm_2_link" file="../../assets/kinova_gen3/assets/half_arm_2_link.stl" />
+    <mesh name="forearm_link" file="../../assets/kinova_gen3/assets/forearm_link.stl" />
+    <mesh name="spherical_wrist_1_link" file="../../assets/kinova_gen3/assets/spherical_wrist_1_link.stl" />
+    <mesh name="spherical_wrist_2_link" file="../../assets/kinova_gen3/assets/spherical_wrist_2_link.stl" />
+    <mesh name="bracelet_with_vision_link" file="../../assets/kinova_gen3/assets/bracelet_with_vision_link.stl" />
+    <texture type="skybox" builtin="gradient" rgb1=".13 .19 .23" rgb2=".025 .045 .06" width="512" height="3072" />
+    <texture name="floorgrid" type="2d" builtin="checker" rgb1=".11 .15 .18" rgb2=".13 .17 .20" width="512" height="512" />
+    <material name="floor" texture="floorgrid" texrepeat="6 6" reflectance=".08" />
+    <material name="ivory" rgba=".81 .84 .82 1" specular=".45" shininess=".5" />
+    <material name="dark" rgba=".10 .15 .18 1" specular=".45" shininess=".5" />
+    <material name="teal" rgba=".03 .55 .52 1" specular=".45" shininess=".5" />
+    <material name="metal" rgba=".48 .57 .62 1" specular=".45" shininess=".5" />
+    <material name="gold" rgba=".94 .57 .13 1" specular=".45" shininess=".5" />
+    <material name="black" specular="0.5" shininess="0.25" rgba="0.16355 0.16355 0.16355 1" />
+    <material name="gray" specular="0.0" shininess="0.25" rgba="0.80848 0.80848 0.80848 1" />
+    <material name="metallic" specular="0" shininess="0.25" rgba="0.9 0.9 0.9 1" />
+    <mesh class="right_hand" file="../../assets/shadow_hand/assets/forearm_0.obj" name="forearm_0" />
+    <mesh class="right_hand" file="../../assets/shadow_hand/assets/forearm_1.obj" name="forearm_1" />
+    <mesh class="right_hand" file="../../assets/shadow_hand/assets/forearm_collision.obj" name="forearm_collision" />
+    <mesh class="right_hand" file="../../assets/shadow_hand/assets/wrist.obj" name="wrist" />
+    <mesh class="right_hand" file="../../assets/shadow_hand/assets/palm.obj" name="palm" />
+    <mesh class="right_hand" file="../../assets/shadow_hand/assets/f_knuckle.obj" name="f_knuckle" />
+    <mesh class="right_hand" file="../../assets/shadow_hand/assets/f_proximal.obj" name="f_proximal" />
+    <mesh class="right_hand" file="../../assets/shadow_hand/assets/f_middle.obj" name="f_middle" />
+    <mesh class="right_hand" file="../../assets/shadow_hand/assets/f_distal_pst.obj" name="f_distal_pst" />
+    <mesh class="right_hand" file="../../assets/shadow_hand/assets/lf_metacarpal.obj" name="lf_metacarpal" />
+    <mesh class="right_hand" file="../../assets/shadow_hand/assets/th_proximal.obj" name="th_proximal" />
+    <mesh class="right_hand" file="../../assets/shadow_hand/assets/th_middle.obj" name="th_middle" />
+    <mesh class="right_hand" file="../../assets/shadow_hand/assets/th_distal_pst.obj" name="th_distal_pst" />
+  </asset>
+  <worldbody>
+    <body name="base_link" pos=".04 .07 .86">
+      <inertial pos="-0.000648 -0.000166 0.084487" quat="0.999294 0.00139618 -0.0118387 0.035636" mass="1.697" diaginertia="0.00462407 0.00449437 0.00207755" />
+      <geom class="visual" mesh="base_link" />
+      <geom class="collision" mesh="base_link" />
+      <body name="shoulder_link" pos="0 0 0.15643" quat="0 1 0 0">
+        <inertial pos="-2.3e-05 -0.010364 -0.07336" quat="0.707051 0.0451246 -0.0453544 0.704263" mass="1.3773" diaginertia="0.00488868 0.00457 0.00135132" />
+        <joint name="joint_1" limited="true" range="-6.2 6.2" />
+        <geom class="visual" mesh="shoulder_link" />
+        <geom class="collision" mesh="shoulder_link" />
+        <body name="half_arm_1_link" pos="0 0.005375 -0.12838" quat="1 1 0 0">
+          <inertial pos="-4.4e-05 -0.09958 -0.013278" quat="0.482348 0.516286 -0.516862 0.483366" mass="1.1636" diaginertia="0.0113017 0.011088 0.00102532" />
+          <joint name="joint_2" range="-2.24 2.24" />
+          <geom class="visual" mesh="half_arm_1_link" />
+          <geom class="collision" mesh="half_arm_1_link" />
+          <body name="half_arm_2_link" pos="0 -0.21038 -0.006375" quat="1 -1 0 0">
+            <inertial pos="-4.4e-05 -0.006641 -0.117892" quat="0.706144 0.0213722 -0.0209128 0.707437" mass="1.1636" diaginertia="0.0111633 0.010932 0.00100671" />
+            <joint name="joint_3" limited="true" range="-6.2 6.2" />
+            <geom class="visual" mesh="half_arm_2_link" />
+            <geom class="collision" mesh="half_arm_2_link" />
+            <body name="forearm_link" pos="0 0.006375 -0.21038" quat="1 1 0 0">
+              <inertial pos="-1.8e-05 -0.075478 -0.015006" quat="0.483678 0.515961 -0.515859 0.483455" mass="0.9302" diaginertia="0.00834839 0.008147 0.000598606" />
+              <joint name="joint_4" range="-2.57 2.57" />
+              <geom class="visual" mesh="forearm_link" />
+              <geom class="collision" mesh="forearm_link" />
+              <body name="spherical_wrist_1_link" pos="0 -0.20843 -0.006375" quat="1 -1 0 0">
+                <inertial pos="1e-06 -0.009432 -0.063883" quat="0.703558 0.0707492 -0.0707492 0.703558" mass="0.6781" diaginertia="0.00165901 0.001596 0.000346988" />
+                <joint name="joint_5" limited="true" range="-6.2 6.2" />
+                <geom class="visual" mesh="spherical_wrist_1_link" />
+                <geom class="collision" mesh="spherical_wrist_1_link" />
+                <body name="spherical_wrist_2_link" pos="0 0.00017505 -0.10593" quat="1 1 0 0">
+                  <inertial pos="1e-06 -0.045483 -0.00965" quat="0.44426 0.550121 -0.550121 0.44426" mass="0.6781" diaginertia="0.00170087 0.001641 0.00035013" />
+                  <joint name="joint_6" range="-2.09 2.09" />
+                  <geom class="visual" mesh="spherical_wrist_2_link" />
+                  <geom class="collision" mesh="spherical_wrist_2_link" />
+                  <body name="bracelet_link" pos="0 -0.10593 -0.00017505" quat="1 -1 0 0">
+                    <inertial pos="0.000281 0.011402 -0.029798" quat="0.394358 0.596779 -0.577293 0.393789" mass="0.5" diaginertia="0.000657336 0.000587019 0.000320645" />
+                    <joint name="joint_7" limited="true" range="-6.2 6.2" />
+                    <geom class="visual" mesh="bracelet_with_vision_link" />
+                    <geom class="collision" mesh="bracelet_with_vision_link" />
+                    <camera name="wrist" pos="0 -0.05639 -0.058475" quat="0 0 0 1" fovy="41.83792730009236" resolution="640 480" />
+                    <site name="pinch_site" pos="0 0 -0.061525" quat="0 1 0 0" />
+                    <body name="rh_forearm" childclass="right_hand" quat="0 1 0 0" pos="0 0 -.074">
+                      <inertial mass="3" pos="0 0 0.09" diaginertia="0.0138 0.0138 0.00744" />
+                      <geom class="plastic_visual" mesh="forearm_0" material="gray" />
+                      <geom class="plastic_visual" mesh="forearm_1" />
+                      <geom class="plastic_collision" type="mesh" mesh="forearm_collision" />
+                      <geom class="plastic_collision" size="0.035 0.035 0.035" pos="0.01 0.0 0.181" quat="0.380188 0.924909 0 0" type="box" />
+                      <body name="rh_wrist" pos="0.01 0 0.21301" quat="1 0 0 1">
+                        <inertial mass="0.1" pos="0 0 0.029" quat="0.5 0.5 0.5 0.5" diaginertia="6.4e-05 4.38e-05 3.5e-05" />
+                        <joint class="wrist_y" name="rh_WRJ2" />
+                        <geom class="plastic_visual" mesh="wrist" material="metallic" />
+                        <geom size="0.0135 0.015" quat="0.499998 0.5 0.5 -0.500002" type="cylinder" class="plastic_collision" />
+                        <geom size="0.011 0.005" pos="-0.026 0 0.034" quat="1 0 1 0" type="cylinder" class="plastic_collision" />
+                        <geom size="0.011 0.005" pos="0.031 0 0.034" quat="1 0 1 0" type="cylinder" class="plastic_collision" />
+                        <geom size="0.0135 0.009 0.005" pos="-0.021 0 0.011" quat="0.923879 0 0.382684 0" type="box" class="plastic_collision" />
+                        <geom size="0.0135 0.009 0.005" pos="0.026 0 0.01" quat="0.923879 0 -0.382684 0" type="box" class="plastic_collision" />
+                        <body name="rh_palm" pos="0 0 0.034">
+                          <inertial mass="0.3" pos="0 0 0.035" quat="1 0 0 1" diaginertia="0.0005287 0.0003581 0.000191" />
+                          <joint class="wrist_x" name="rh_WRJ1" />
+                          <site name="grasp_site" pos="0 -.035 0.09" group="4" />
+                          <geom class="plastic_visual" mesh="palm" />
+                          <geom size="0.031 0.0035 0.049" pos="0.011 0.0085 0.038" type="box" class="plastic_collision" />
+                          <geom size="0.018 0.0085 0.049" pos="-0.002 -0.0035 0.038" type="box" class="plastic_collision" />
+                          <geom size="0.013 0.0085 0.005" pos="0.029 -0.0035 0.082" type="box" class="plastic_collision" />
+                          <geom size="0.013 0.007 0.009" pos="0.0265 -0.001 0.07" quat="0.987241 0.0990545 0.0124467 0.124052" type="box" class="plastic_collision" />
+                          <geom size="0.0105 0.0135 0.012" pos="0.0315 -0.0085 0.001" type="box" class="plastic_collision" />
+                          <geom size="0.011 0.0025 0.015" pos="0.0125 -0.015 0.004" quat="0.971338 0 0 -0.237703" type="box" class="plastic_collision" />
+                          <geom size="0.009 0.012 0.002" pos="0.011 0 0.089" type="box" class="plastic_collision" />
+                          <geom size="0.01 0.012 0.02" pos="-0.03 0 0.009" type="box" class="plastic_collision" />
+                          <body name="rh_ffknuckle" pos="0.033 0 0.095">
+                            <inertial mass="0.008" pos="0 0 0" quat="0.5 0.5 -0.5 0.5" diaginertia="3.2e-07 2.6e-07 2.6e-07" />
+                            <joint name="rh_FFJ4" class="knuckle" />
+                            <geom pos="0 0 0.0005" class="plastic_visual" mesh="f_knuckle" material="metallic" />
+                            <geom size="0.009 0.009" quat="1 0 1 0" type="cylinder" class="plastic_collision" />
+                            <body name="rh_ffproximal">
+                              <inertial mass="0.03" pos="0 0 0.0225" quat="1 0 0 1" diaginertia="1e-05 9.8e-06 1.8e-06" />
+                              <joint name="rh_FFJ3" class="proximal" />
+                              <geom class="plastic_visual" mesh="f_proximal" />
+                              <geom size="0.009 0.02" pos="0 0 0.025" type="capsule" class="plastic_collision" />
+                              <body name="rh_ffmiddle" pos="0 0 0.045">
+                                <inertial mass="0.017" pos="0 0 0.0125" quat="1 0 0 1" diaginertia="2.7e-06 2.6e-06 8.7e-07" />
+                                <joint name="rh_FFJ2" class="middle_distal" />
+                                <geom class="plastic_visual" mesh="f_middle" />
+                                <geom size="0.009 0.0125" pos="0 0 0.0125" type="capsule" class="plastic_collision" />
+                                <body name="rh_ffdistal" pos="0 0 0.025">
+                                  <inertial mass="0.013" pos="0 0 0.0130769" quat="1 0 0 1" diaginertia="1.28092e-06 1.12092e-06 5.3e-07" />
+                                  <joint name="rh_FFJ1" class="middle_distal" />
+                                  <geom class="plastic_visual" mesh="f_distal_pst" />
+                                  <geom class="plastic_collision" type="mesh" mesh="f_distal_pst" condim="4" friction=".9 .003 .0001" />
+                                  <site name="ff_pad" pos="0 0 .025" group="4" />
+                                </body>
+                              </body>
+                            </body>
+                          </body>
+                          <body name="rh_mfknuckle" pos="0.011 0 0.099">
+                            <inertial mass="0.008" pos="0 0 0" quat="0.5 0.5 -0.5 0.5" diaginertia="3.2e-07 2.6e-07 2.6e-07" />
+                            <joint name="rh_MFJ4" class="knuckle" />
+                            <geom pos="0 0 0.0005" class="plastic_visual" mesh="f_knuckle" material="metallic" />
+                            <geom size="0.009 0.009" quat="1 0 1 0" type="cylinder" class="plastic_collision" />
+                            <body name="rh_mfproximal">
+                              <inertial mass="0.03" pos="0 0 0.0225" quat="1 0 0 1" diaginertia="1e-05 9.8e-06 1.8e-06" />
+                              <joint name="rh_MFJ3" class="proximal" />
+                              <geom class="plastic_visual" mesh="f_proximal" />
+                              <geom size="0.009 0.02" pos="0 0 0.025" type="capsule" class="plastic_collision" />
+                              <body name="rh_mfmiddle" pos="0 0 0.045">
+                                <inertial mass="0.017" pos="0 0 0.0125" quat="1 0 0 1" diaginertia="2.7e-06 2.6e-06 8.7e-07" />
+                                <joint name="rh_MFJ2" class="middle_distal" />
+                                <geom class="plastic_visual" mesh="f_middle" />
+                                <geom size="0.009 0.0125" pos="0 0 0.0125" type="capsule" class="plastic_collision" />
+                                <body name="rh_mfdistal" pos="0 0 0.025">
+                                  <inertial mass="0.013" pos="0 0 0.0130769" quat="1 0 0 1" diaginertia="1.28092e-06 1.12092e-06 5.3e-07" />
+                                  <joint name="rh_MFJ1" class="middle_distal" />
+                                  <geom class="plastic_visual" mesh="f_distal_pst" />
+                                  <geom class="plastic_collision" type="mesh" mesh="f_distal_pst" condim="4" friction=".9 .003 .0001" />
+                                  <site name="mf_pad" pos="0 0 .025" group="4" />
+                                </body>
+                              </body>
+                            </body>
+                          </body>
+                          <body name="rh_rfknuckle" pos="-0.011 0 0.095">
+                            <inertial mass="0.008" pos="0 0 0" quat="0.5 0.5 -0.5 0.5" diaginertia="3.2e-07 2.6e-07 2.6e-07" />
+                            <joint name="rh_RFJ4" class="knuckle" axis="0 1 0" />
+                            <geom pos="0 0 0.0005" class="plastic_visual" mesh="f_knuckle" material="metallic" />
+                            <geom size="0.009 0.009" quat="1 0 1 0" type="cylinder" class="plastic_collision" />
+                            <body name="rh_rfproximal">
+                              <inertial mass="0.03" pos="0 0 0.0225" quat="1 0 0 1" diaginertia="1e-05 9.8e-06 1.8e-06" />
+                              <joint name="rh_RFJ3" class="proximal" />
+                              <geom class="plastic_visual" mesh="f_proximal" />
+                              <geom size="0.009 0.02" pos="0 0 0.025" type="capsule" class="plastic_collision" />
+                              <body name="rh_rfmiddle" pos="0 0 0.045">
+                                <inertial mass="0.017" pos="0 0 0.0125" quat="1 0 0 1" diaginertia="2.7e-06 2.6e-06 8.7e-07" />
+                                <joint name="rh_RFJ2" class="middle_distal" />
+                                <geom class="plastic_visual" mesh="f_middle" />
+                                <geom size="0.009 0.0125" pos="0 0 0.0125" type="capsule" class="plastic_collision" />
+                                <body name="rh_rfdistal" pos="0 0 0.025">
+                                  <inertial mass="0.013" pos="0 0 0.0130769" quat="1 0 0 1" diaginertia="1.28092e-06 1.12092e-06 5.3e-07" />
+                                  <joint name="rh_RFJ1" class="middle_distal" />
+                                  <geom class="plastic_visual" mesh="f_distal_pst" />
+                                  <geom class="plastic_collision" type="mesh" mesh="f_distal_pst" condim="4" friction=".9 .002 .0001" />
+                                  <site name="rf_pad" pos="0 0 .025" group="4" />
+                                </body>
+                              </body>
+                            </body>
+                          </body>
+                          <body name="rh_lfmetacarpal" pos="-0.033 0 0.02071">
+                            <inertial mass="0.03" pos="0 0 0.04" quat="1 0 0 1" diaginertia="1.638e-05 1.45e-05 4.272e-06" />
+                            <joint name="rh_LFJ5" class="metacarpal" />
+                            <geom class="plastic_visual" mesh="lf_metacarpal" />
+                            <geom size="0.011 0.012 0.025" pos="0.002 0 0.033" type="box" class="plastic_collision" />
+                            <body name="rh_lfknuckle" pos="0 0 0.06579">
+                              <inertial mass="0.008" pos="0 0 0" quat="0.5 0.5 -0.5 0.5" diaginertia="3.2e-07 2.6e-07 2.6e-07" />
+                              <joint name="rh_LFJ4" class="knuckle" axis="0 1 0" />
+                              <geom pos="0 0 0.0005" class="plastic_visual" mesh="f_knuckle" material="metallic" />
+                              <geom size="0.009 0.009" quat="1 0 1 0" type="cylinder" class="plastic_collision" />
+                              <body name="rh_lfproximal">
+                                <inertial mass="0.03" pos="0 0 0.0225" quat="1 0 0 1" diaginertia="1e-05 9.8e-06 1.8e-06" />
+                                <joint name="rh_LFJ3" class="proximal" />
+                                <geom class="plastic_visual" mesh="f_proximal" />
+                                <geom size="0.009 0.02" pos="0 0 0.025" type="capsule" class="plastic_collision" />
+                                <body name="rh_lfmiddle" pos="0 0 0.045">
+                                  <inertial mass="0.017" pos="0 0 0.0125" quat="1 0 0 1" diaginertia="2.7e-06 2.6e-06 8.7e-07" />
+                                  <joint name="rh_LFJ2" class="middle_distal" />
+                                  <geom class="plastic_visual" mesh="f_middle" />
+                                  <geom size="0.009 0.0125" pos="0 0 0.0125" type="capsule" class="plastic_collision" />
+                                  <body name="rh_lfdistal" pos="0 0 0.025">
+                                    <inertial mass="0.013" pos="0 0 0.0130769" quat="1 0 0 1" diaginertia="1.28092e-06 1.12092e-06 5.3e-07" />
+                                    <joint name="rh_LFJ1" class="middle_distal" />
+                                    <geom class="plastic_visual" mesh="f_distal_pst" />
+                                    <geom class="plastic_collision" type="mesh" mesh="f_distal_pst" condim="4" friction=".9 .002 .0001" />
+                                    <site name="lf_pad" pos="0 0 .025" group="4" />
+                                  </body>
+                                </body>
+                              </body>
+                            </body>
+                          </body>
+                          <body name="rh_thbase" pos="0.034 -0.00858 0.029" quat="0.92388 0 0.382683 0">
+                            <inertial mass="0.01" pos="0 0 0" diaginertia="1.6e-07 1.6e-07 1.6e-07" />
+                            <joint name="rh_THJ5" class="thbase" />
+                            <geom class="plastic_collision" size="0.013" />
+                            <body name="rh_thproximal">
+                              <inertial mass="0.04" pos="0 0 0.019" diaginertia="1.36e-05 1.36e-05 3.13e-06" />
+                              <joint name="rh_THJ4" class="thproximal" />
+                              <geom class="plastic_visual" mesh="th_proximal" />
+                              <geom class="plastic_collision" size="0.0105 0.009" pos="0 0 0.02" type="capsule" />
+                              <body name="rh_thhub" pos="0 0 0.038">
+                                <inertial mass="0.005" pos="0 0 0" diaginertia="1e-06 1e-06 3e-07" />
+                                <joint name="rh_THJ3" class="thhub" />
+                                <geom size="0.011" class="plastic_collision" />
+                                <body name="rh_thmiddle">
+                                  <inertial mass="0.02" pos="0 0 0.016" diaginertia="5.1e-06 5.1e-06 1.21e-06" />
+                                  <joint name="rh_THJ2" class="thmiddle" />
+                                  <geom class="plastic_visual" mesh="th_middle" />
+                                  <geom size="0.009 0.009" pos="0 0 0.012" type="capsule" class="plastic_collision" />
+                                  <geom size="0.01" pos="0 0 0.03" class="plastic_collision" />
+                                  <body name="rh_thdistal" pos="0 0 0.032" quat="1 0 0 -1">
+                                    <inertial mass="0.017" pos="0 0 0.0145588" quat="1 0 0 1" diaginertia="2.37794e-06 2.27794e-06 1e-06" />
+                                    <joint name="rh_THJ1" class="thdistal" />
+                                    <geom class="plastic_visual" mesh="th_distal_pst" />
+                                    <geom class="plastic_collision" type="mesh" mesh="th_distal_pst" condim="4" friction=".9 .003 .0001" />
+                                    <site name="th_pad" pos="0 0 .025" group="4" />
+                                  </body>
+                                </body>
+                              </body>
+                            </body>
+                          </body>
+                          <site name="grip_frame" pos=".025 -.065 .125" quat="0 1 0 0" group="4" />
+                        </body>
+                      </body>
+                    </body>
+                    <geom type="cylinder" pos="0 0 -.062" size=".045 .012" material="metal" mass=".08" />
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+    <geom name="floor" type="plane" size="3 3 .1" material="floor" />
+    <light pos="0 -1.5 3" dir=".1 .3 -1" diffuse=".85 .82 .76" castshadow="true" />
+    <light pos="1 -1 1.8" dir="-.3 .2 -.1" diffuse=".6 .7 .8" castshadow="false" />
+    <light pos="1 1 2.5" dir="-.3 -.3 -1" diffuse=".5 .65 .75" castshadow="false" />
+    <geom name="desk" type="box" pos=".28 0 .72" size=".69 .48 .035" rgba=".27 .21 .16 1" />
+    <geom name="desk_edge" type="box" pos=".28 0 .677" size=".695 .485 .008" material="dark" />
+    <geom type="box" pos="-0.31 -0.38 .33" size=".025 .025 .33" material="dark" />
+    <geom type="box" pos="-0.31 0.38 .33" size=".025 .025 .33" material="dark" />
+    <geom type="box" pos="0.86 -0.38 .33" size=".025 .025 .33" material="dark" />
+    <geom type="box" pos="0.86 0.38 .33" size=".025 .025 .33" material="dark" />
+    <geom name="pad" type="box" pos=".46 0 .759" size=".175 .135 .004" material="dark" />
+    <geom name="paper" type="box" pos=".46 0 .7635" size=".1485 .105 .0005" rgba=".97 .96 .91 1" friction=".38 .002 .0001" />
+    <geom type="box" pos=".46 -0.112 .765" size=".04 .006 .002" material="metal" />
+    <geom type="box" pos=".46 0.112 .765" size=".04 .006 .002" material="metal" />
+    <geom type="cylinder" pos=".04 .07 .8075" size=".075 .0525" material="dark" />
+    <body name="pencil" pos=".46 -.20 .873" quat="0 1 0 0">
+      <freejoint name="pencil_free" />
+      <geom name="pencil_shaft" type="cylinder" pos="0 0 -.009" size=".0036 .075" material="gold" mass=".0055" />
+      <geom name="pencil_wood" type="capsule" fromto="0 0 .066 0 0 .076" size=".0024" rgba=".72 .50 .28 1" mass=".001" />
+      <geom name="graphite_tip" type="sphere" pos="0 0 .079" size=".0008" rgba=".08 .09 .10 1" mass=".0001" friction=".4 .001 .00001" />
+      <geom type="cylinder" pos="0 0 -.086" size=".004 .005" material="metal" mass=".0008" />
+      <geom type="cylinder" pos="0 0 -.094" size=".0038 .003" rgba=".85 .38 .32 1" mass=".0004" />
+      <site name="tip" pos="0 0 .079" size=".001" rgba="1 0 0 0" quat="0 1 0 0" />
+    </body>
+  </worldbody>
+  <actuator>
+    <position class="large_actuator" name="joint_1" joint="joint_1" />
+    <position class="large_actuator" name="joint_2" joint="joint_2" ctrlrange="-2.2497294058206907 2.2497294058206907" />
+    <position class="large_actuator" name="joint_3" joint="joint_3" />
+    <position class="large_actuator" name="joint_4" joint="joint_4" ctrlrange="-2.5795966344476193 2.5795966344476193" />
+    <position class="small_actuator" name="joint_5" joint="joint_5" />
+    <position class="small_actuator" name="joint_6" joint="joint_6" ctrlrange="-2.0996310901491784 2.0996310901491784" />
+    <position class="small_actuator" name="joint_7" joint="joint_7" />
+    <position name="rh_A_WRJ2" joint="rh_WRJ2" class="wrist_y" kp="150" kv="6" />
+    <position name="rh_A_WRJ1" joint="rh_WRJ1" class="wrist_x" kp="150" kv="6" />
+    <position name="rh_A_THJ5" joint="rh_THJ5" class="thbase" kp="8" kv=".15" />
+    <position name="rh_A_THJ4" joint="rh_THJ4" class="thproximal" kp="8" kv=".15" />
+    <position name="rh_A_THJ3" joint="rh_THJ3" class="thhub" kp="8" kv=".15" />
+    <position name="rh_A_THJ2" joint="rh_THJ2" class="thmiddle" kp="8" kv=".15" />
+    <position name="rh_A_THJ1" joint="rh_THJ1" class="thdistal" kp="8" kv=".15" />
+    <position name="rh_A_FFJ4" joint="rh_FFJ4" class="knuckle" kp="8" kv=".15" />
+    <position name="rh_A_FFJ3" joint="rh_FFJ3" class="proximal" kp="8" kv=".15" />
+    <position name="rh_A_FFJ0" tendon="rh_FFJ0" class="middle_distal" kp="8" kv=".15" />
+    <position name="rh_A_MFJ4" joint="rh_MFJ4" class="knuckle" kp="8" kv=".15" />
+    <position name="rh_A_MFJ3" joint="rh_MFJ3" class="proximal" kp="8" kv=".15" />
+    <position name="rh_A_MFJ0" tendon="rh_MFJ0" class="middle_distal" kp="8" kv=".15" />
+    <position name="rh_A_RFJ4" joint="rh_RFJ4" class="knuckle" kp="8" kv=".15" />
+    <position name="rh_A_RFJ3" joint="rh_RFJ3" class="proximal" kp="8" kv=".15" />
+    <position name="rh_A_RFJ0" tendon="rh_RFJ0" class="middle_distal" kp="8" kv=".15" />
+    <position name="rh_A_LFJ5" joint="rh_LFJ5" class="metacarpal" kp="8" kv=".15" />
+    <position name="rh_A_LFJ4" joint="rh_LFJ4" class="knuckle" kp="8" kv=".15" />
+    <position name="rh_A_LFJ3" joint="rh_LFJ3" class="proximal" kp="8" kv=".15" />
+    <position name="rh_A_LFJ0" tendon="rh_LFJ0" class="middle_distal" kp="8" kv=".15" />
+  </actuator>
+  <visual>
+    <global offwidth="1600" offheight="1200" />
+    <quality shadowsize="4096" />
+    <headlight ambient=".25 .25 .25" diffuse=".5 .5 .5" />
+  </visual>
+  <contact>
+    <exclude body1="rh_wrist" body2="rh_forearm" />
+    <exclude body1="rh_thproximal" body2="rh_thmiddle" />
+    <exclude body1="base_link" body2="shoulder_link" />
+    <pair geom1="graphite_tip" geom2="paper" condim="3" margin=".00005" solref=".015 1" solimp=".9 .95 .001" friction=".4 .4 .001 .00001 .00001" />
+  </contact>
+  <tendon>
+    <fixed name="rh_FFJ0">
+      <joint joint="rh_FFJ2" coef="1" />
+      <joint joint="rh_FFJ1" coef="1" />
+    </fixed>
+    <fixed name="rh_MFJ0">
+      <joint joint="rh_MFJ2" coef="1" />
+      <joint joint="rh_MFJ1" coef="1" />
+    </fixed>
+    <fixed name="rh_RFJ0">
+      <joint joint="rh_RFJ2" coef="1" />
+      <joint joint="rh_RFJ1" coef="1" />
+    </fixed>
+    <fixed name="rh_LFJ0">
+      <joint joint="rh_LFJ2" coef="1" />
+      <joint joint="rh_LFJ1" coef="1" />
+    </fixed>
+  </tendon>
+</mujoco>

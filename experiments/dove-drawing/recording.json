@@ -1,0 +1,36 @@
+{
+  "model": {
+    "reported_label": "GPT-6 Astra",
+    "exact_snapshot": null,
+    "settings": null
+  },
+  "method": "Model-authored code and human-guided iteration; recorded controller uses simulator state.",
+  "original_scene_sha256": "3cc6f6d53c08a952ab8140e1f045ca62d878f524c69e9540b4b2d918097b1301",
+  "scene_sha256": "239c87c95086e1d4e10c8e9cba688f19e8a4667f91724961c8f52255a7968fea",
+  "conversion": "Asset paths and trailing newline only. All 480 compiled model arrays and physics options match the original; path tables and allocation sizes are excluded.",
+  "historical_result": {
+    "completed": true,
+    "duration_sim_s": 173.00000000009794,
+    "attachments": false,
+    "contact_stamps": 10064,
+    "tracking_error_mm": {
+      "median": 0.14902265924226174,
+      "p95": 0.5488567119302107,
+      "max": 4.625850887839937
+    },
+    "hand_contact_fraction": 1.0,
+    "shaft_paper_contact_steps": 0,
+    "actuator_limit_compliance": true
+  },
+  "package_checks": {
+    "platform": "macOS Apple Silicon",
+    "python": "3.14",
+    "mujoco": "3.12.0",
+    "passed": [
+      "480 compiled model arrays and physics options match original",
+      "controller startup and first full stroke (3368 contact marks)",
+      "saved-run telemetry validator passed",
+      "six replay frames rendered"
+    ]
+  }
+}

@@ -1,34 +1,48 @@
 # LLM Robotics Playground
 
-Robotics environments and experiments with LLMs and VLMs—from untangling headphones to drawing with robot arms.
+Robotics experiments with LLMs and VLMs—from untangling headphones to drawing with robot arms.
 
-A place to share the setups, controllers, recordings, and practical lessons behind these experiments, and to try the same tasks with different models.
+Four MuJoCo environments, their controllers, and the recordings behind the demos. Pick an experiment to run it, inspect the result, or try a different approach.
 
-## Initial collection
-
-| Experiment | Task | Packaging status |
+| Experiment | Preview | Recorded result |
 | --- | --- | --- |
-| Headphone untangling | Two robot arms open two tangled regions of a headphone cable. | In preparation |
-| Robo spider | A six-legged, dual-arm robot picks up objects, carries them around an obstacle, and places them on another table. | In preparation |
-| Fibonacci writing | A humanoid writes a short Fibonacci program on a whiteboard. | In preparation |
-| Dove drawing | A robot arm with an articulated hand draws a dove using a pencil. | In preparation |
+| [Headphone untangling](experiments/headphone-untangling) | [![Headphones](experiments/headphone-untangling/preview.png)](experiments/headphone-untangling) | Two tangled regions opened; full-release verification remains incomplete. |
+| [Robo spider](experiments/robo-spider) | [![Spider](experiments/robo-spider/preview.png)](experiments/robo-spider) | Six legs, two arms, two objects transferred around an obstacle. |
+| [Fibonacci writing](experiments/fibonacci-writing) | [![Fibonacci](experiments/fibonacci-writing/preview.png)](experiments/fibonacci-writing) | A humanoid writes a short Python program on a whiteboard. |
+| [Dove drawing](experiments/dove-drawing) | [![Dove](experiments/dove-drawing/preview.png)](experiments/dove-drawing) | An articulated hand draws a dove with a friction-held pencil. |
 
-**The repository currently contains documentation only.** Runnable experiment packages and selected recordings will be added after their dependencies and reproduction steps have been checked.
+[Watch or download the selected recordings](https://github.com/dimentary/llm-robotics-playground/releases/tag/v0.1.0).
 
-## What each experiment will include
+## Start here
 
-- A MuJoCo environment, required robot assets, and a defined starting state.
-- The controller used for the demonstration, plus instructions to run and inspect it.
-- A selected recording and the data needed to replay or render the recorded result.
-- Checks, observed outcomes, and known limitations.
-- Notes on the model, tools, observations, prompts or task brief, and human guidance used.
+Tested on macOS Apple Silicon with Python 3.14 and MuJoCo 3.12.0. Other platforms have not been verified. Rendering requires graphics support; native interactive viewing on macOS uses `mjpython`.
 
-Model-authored controllers, model-guided iteration, and live model control are different ways to conduct an experiment. Each package will explain which was used. Replaying a recording or rerunning a saved controller does not rerun the original model interaction.
+```sh
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+python check.py
+```
 
-These are exploratory simulation experiments. Results apply to the documented setup and run; this collection does not yet define a standardized benchmark.
+Then follow an experiment's README. Every experiment writes generated files into its ignored `outputs/` folder. Robot assets are included once in `assets/`; no model API key is needed to run the saved controllers.
 
-See the [publication plan](docs/publication-plan.md) and [experiment template](docs/experiment-template.md).
+To inspect a recorded run without waiting for new simulation:
 
-## License
+```sh
+python fetch.py robo-spider
+cd experiments/robo-spider
+python validate.py
+python render.py --preview
+```
 
-Original material in this repository is provided under the [MIT License](LICENSE), unless a file says otherwise. Third-party robot models, images, and other assets retain their own licenses and attribution; the repository license does not relicense them.
+`fetch.py` downloads only the selected task's replay bundle, checks its SHA-256, and refuses to overwrite existing recordings. Videos and large trajectories live in Releases; [recordings.json](recordings.json) pins their filenames and checksums.
+
+## What the models did
+
+These experiments were developed with Astra through iterative code generation, simulation inspection, and human feedback. The included controllers use simulator state. Running them repeats the controller's behavior; it does not make new model calls or reproduce the original conversation.
+
+Each experiment documents its starting assumptions, model involvement, observed outcome, and presentation edits. Exact model settings were not preserved. These are exploratory examples, not a standardized benchmark or a general capability ceiling. New models and attempts can be added under the same task.
+
+## Credits and license
+
+Original code is [MIT licensed](LICENSE). Robot models retain their upstream licenses; see [asset credits](assets/README.md). The dove artwork and artwork-derived assets are excluded from the MIT grant; see that experiment's credits.

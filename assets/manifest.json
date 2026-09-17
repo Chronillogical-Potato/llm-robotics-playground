@@ -1,0 +1,398 @@
+{
+  "repository": "https://github.com/google-deepmind/mujoco_menagerie",
+  "revision": "8161bba264d7fa7c99ca301e91e7fb44737676ad",
+  "files": [
+    {
+      "path": "aloha/LICENSE",
+      "sha256": "21868447315ac2b10e592d08958c1035b19a32cf39e9165b23033f68390098cb"
+    },
+    {
+      "path": "aloha/aloha.xml",
+      "sha256": "68430b29719bda1b75e63f540953f81991bc3fd136bdf0a43bbe3e04393b78d3"
+    },
+    {
+      "path": "aloha/assets/d405_solid.stl",
+      "sha256": "8a9a84dd9c9a67687e5ad0b37a7ed334dbfea6b0f995fef28524cc8da5f21ed2"
+    },
+    {
+      "path": "aloha/assets/vx300s_1_base.stl",
+      "sha256": "d100cafe656671ca8fde98fb6a4cf2d1b746995c51c61c25ad9ea2715635d146"
+    },
+    {
+      "path": "aloha/assets/vx300s_2_shoulder.stl",
+      "sha256": "139745a74055cb0b23430bb5bc032bf68cf7bea5e4975c8f4c04107ae005f7f0"
+    },
+    {
+      "path": "aloha/assets/vx300s_3_upper_arm.stl",
+      "sha256": "900f236320dd3d500870c5fde763b2d47502d51e043a5c377875e70237108729"
+    },
+    {
+      "path": "aloha/assets/vx300s_4_upper_forearm.stl",
+      "sha256": "4104fc54bbfb8a9b533029f1e7e3ade3d54d638372b3195daa0c98f57e0295b5"
+    },
+    {
+      "path": "aloha/assets/vx300s_5_lower_forearm.stl",
+      "sha256": "66814e27fa728056416e25e02e89eb7d34c51d51c51e7c3df873829037ddc6b8"
+    },
+    {
+      "path": "aloha/assets/vx300s_6_wrist.stl",
+      "sha256": "90eb145c85627968c3776ae6de23ccff7e112c9dd713c46bc9acdfdaa859a048"
+    },
+    {
+      "path": "aloha/assets/vx300s_7_gripper_bar.stl",
+      "sha256": "b76420544e84102b1cd30745f3c6c2675f9bf08a656808101f32b6466a33f2ee"
+    },
+    {
+      "path": "aloha/assets/vx300s_7_gripper_prop.stl",
+      "sha256": "4536e8975278953841f25391dccef10907859e69c71b9f06f794fef6dfc5959c"
+    },
+    {
+      "path": "aloha/assets/vx300s_7_gripper_wrist_mount.stl",
+      "sha256": "50c54e0486d3e349785163dbce209313f7b4b3feadc252ab2e2c9e55a5d0e7ef"
+    },
+    {
+      "path": "aloha/assets/vx300s_8_custom_finger_left.stl",
+      "sha256": "5853af5b66dd9fc954b6705a883d8569c96536d86775d094f3670befaff67a93"
+    },
+    {
+      "path": "aloha/assets/vx300s_8_custom_finger_right.stl",
+      "sha256": "9a1bbd942b887f27e2680b4c99dd3b3d2f73578fa9a87cc0f4dd1da3cf88b2e2"
+    },
+    {
+      "path": "aloha/joint_position_actuators.xml",
+      "sha256": "ce843cf0cfecea5ec1f117eb4257d4249dc2296e92e5f2ffb40f2e0178109bc6"
+    },
+    {
+      "path": "aloha/keyframe_ctrl.xml",
+      "sha256": "960481d23320fb45cd1cdaa75fb48ec69fa0dec46851dabcfac7f00a583c8a45"
+    },
+    {
+      "path": "kinova_gen3/LICENSE",
+      "sha256": "50ee431dbfbfcc53d976d3a5a2918e2fff4236f7f3c492d405e98a3f72106736"
+    },
+    {
+      "path": "kinova_gen3/assets/base_link.stl",
+      "sha256": "3e38517e653d58f4160cfdcee34c9dea983d8b3ecb8f2c147444f58235335260"
+    },
+    {
+      "path": "kinova_gen3/assets/bracelet_with_vision_link.stl",
+      "sha256": "8bb05e420a88532b4eee3948a0047fb8e7f341c3e5cc971d54e97e2aaffcf878"
+    },
+    {
+      "path": "kinova_gen3/assets/forearm_link.stl",
+      "sha256": "a00d96d2c7ec37e9fe4c5fb6d3fa2b4386dfd48fea5ac25632f4cb83b3505105"
+    },
+    {
+      "path": "kinova_gen3/assets/half_arm_1_link.stl",
+      "sha256": "8df461a71780d8e2d09104a507584424279d85173adf14867e359f7e58b3bba7"
+    },
+    {
+      "path": "kinova_gen3/assets/half_arm_2_link.stl",
+      "sha256": "8a9f38de21648804b3ab7076ec73726031f2ade7c95eb2541d070553e025407b"
+    },
+    {
+      "path": "kinova_gen3/assets/shoulder_link.stl",
+      "sha256": "a98e232e5197f09e9cd520e7a450c21bcec74bc49e2a19ce7cf86c5dc25f2e18"
+    },
+    {
+      "path": "kinova_gen3/assets/spherical_wrist_1_link.stl",
+      "sha256": "0b97a5e3b2de535344f8e8d4176d77f0cdb3455b235f35430fa0413208856e66"
+    },
+    {
+      "path": "kinova_gen3/assets/spherical_wrist_2_link.stl",
+      "sha256": "12271fb7d0ee78fb5642424cf5078be20f0476061e74203db964b674031ce879"
+    },
+    {
+      "path": "robotiq_2f85/LICENSE",
+      "sha256": "3d5edd18d1e22a17666e9bb84270171ed5ac90b192d24e0177fd171708ea2316"
+    },
+    {
+      "path": "robotiq_2f85/assets/base.stl",
+      "sha256": "1c7b9f2bd92d705fc4e897c94e905973a3c05f406845e942229433deb7041453"
+    },
+    {
+      "path": "robotiq_2f85/assets/base_mount.stl",
+      "sha256": "87971dfdd6e5311b5a723e7b73c4701ebf5c2364df671500f30dfc1c53c8e61a"
+    },
+    {
+      "path": "robotiq_2f85/assets/coupler.stl",
+      "sha256": "d5ee95e62f8415bf5b6e503c831a958f5fc1990bf9b2865329ec38a28932727c"
+    },
+    {
+      "path": "robotiq_2f85/assets/driver.stl",
+      "sha256": "bbd6e868b1778bead60d2516c7ede581d7ad4e431744b1828757d6ea5129c112"
+    },
+    {
+      "path": "robotiq_2f85/assets/follower.stl",
+      "sha256": "633793332c081641ce200df27a40643cc293b29956e3cb5cb29cb811c33ef1c7"
+    },
+    {
+      "path": "robotiq_2f85/assets/pad.stl",
+      "sha256": "4af1fa8d9bb285abecbf5dfc88e74cb30f059a7a074c2030dc35e9ee4316019d"
+    },
+    {
+      "path": "robotiq_2f85/assets/silicone_pad.stl",
+      "sha256": "ca20c0fa61e6d3ce7b04bed25360e048e31dfd88ace04187aa6d9e8f4ca3fd0f"
+    },
+    {
+      "path": "robotiq_2f85/assets/spring_link.stl",
+      "sha256": "4fb74a8a0d76c0e471cf19fd48bc676fd5b19123798e7a39eb6aa56869354283"
+    },
+    {
+      "path": "shadow_hand/LICENSE",
+      "sha256": "d42cae9a0f292b7a713597ba26e1e1e23d50df906c488f0d36fd3538af200bc1"
+    },
+    {
+      "path": "shadow_hand/assets/f_distal_pst.obj",
+      "sha256": "350fcd33bc8ead915c0f646c8303d6b7554ad50ce546a128671d8d1fc75d5807"
+    },
+    {
+      "path": "shadow_hand/assets/f_knuckle.obj",
+      "sha256": "e997543c6c635fa80d152655869fe1d5bc1000a55f7fb648544a8755f068a075"
+    },
+    {
+      "path": "shadow_hand/assets/f_middle.obj",
+      "sha256": "8e78001a2ff735088cd71e009498ac73e4f966a6055d3bc864db049eacdbda11"
+    },
+    {
+      "path": "shadow_hand/assets/f_proximal.obj",
+      "sha256": "ec7741fb5a9ee379faec68091de1086ade627b46a73f0a32b3cc09fec72524e3"
+    },
+    {
+      "path": "shadow_hand/assets/forearm_0.obj",
+      "sha256": "4d175854bbd3c93627eb6b9f09296efd4e133cd72885b9bc57c82f902c8c94c4"
+    },
+    {
+      "path": "shadow_hand/assets/forearm_1.obj",
+      "sha256": "6ada902a47f61f000fb14cbb8245e2093ff32e3e6b43deea790fe5d034864774"
+    },
+    {
+      "path": "shadow_hand/assets/forearm_collision.obj",
+      "sha256": "38328466d52194888812a15da0dd3d5a1ef786a005121338f6a5a8ce3057602d"
+    },
+    {
+      "path": "shadow_hand/assets/lf_metacarpal.obj",
+      "sha256": "71d5317a6c0a5dcf6070791981f2a4720919d0419d0c17b400aef91343ce6baa"
+    },
+    {
+      "path": "shadow_hand/assets/palm.obj",
+      "sha256": "614cf65374fafaceb713f4ee711692be6a3a0a7851ff2e720925f3a858cb3882"
+    },
+    {
+      "path": "shadow_hand/assets/th_distal_pst.obj",
+      "sha256": "ca87b937114face76a91810f2ee60ea4fc217b57ffa9a7a7f166169a3ebf7da1"
+    },
+    {
+      "path": "shadow_hand/assets/th_middle.obj",
+      "sha256": "a83bd4451f98d88c6c43ca0bbba30b6fd95b205da13adf9aff5a56c5aff3b4a8"
+    },
+    {
+      "path": "shadow_hand/assets/th_proximal.obj",
+      "sha256": "71ffd5329c80a0cef890da0ff490b8e04200ff53154e5b416ce0be24a6a1b256"
+    },
+    {
+      "path": "shadow_hand/assets/wrist.obj",
+      "sha256": "fc5620e4d9ea46d9526f0b40f8586bb5607e8ca763e5e23dab907a1baaf4890d"
+    },
+    {
+      "path": "unitree_g1/LICENSE",
+      "sha256": "98335465f43a20b5850e4651db6e74c4aa1e9fc8e8813d38f345178045c0da50"
+    },
+    {
+      "path": "unitree_g1/assets/head_link.STL",
+      "sha256": "005fb67fbd3eff94aa8bf4a6e83238174e9f91b6721f7111594322f223724411"
+    },
+    {
+      "path": "unitree_g1/assets/left_ankle_pitch_link.STL",
+      "sha256": "d49e3abc6f5b12e532062cd575b87b5ef40cd2a3fc18f54a1ca5bba4f773d51d"
+    },
+    {
+      "path": "unitree_g1/assets/left_ankle_roll_link.STL",
+      "sha256": "c4092af943141d4d9f74232f3cfa345afc6565f46a077793b8ae0e68b39dc33f"
+    },
+    {
+      "path": "unitree_g1/assets/left_elbow_link.STL",
+      "sha256": "fa752198accd104d5c4c3a01382e45165b944fbbc5acce085059223324e5bed3"
+    },
+    {
+      "path": "unitree_g1/assets/left_hand_index_0_link.STL",
+      "sha256": "6b35f2f77211d5a366f0b9a4e47c4ee35e536731266f1a34e9efa12db579b892"
+    },
+    {
+      "path": "unitree_g1/assets/left_hand_index_1_link.STL",
+      "sha256": "9e315ebc8a7a0cb98e033985b586b20d81cf8aa761181ae61ce56fcb14077a06"
+    },
+    {
+      "path": "unitree_g1/assets/left_hand_middle_0_link.STL",
+      "sha256": "6b35f2f77211d5a366f0b9a4e47c4ee35e536731266f1a34e9efa12db579b892"
+    },
+    {
+      "path": "unitree_g1/assets/left_hand_middle_1_link.STL",
+      "sha256": "9e315ebc8a7a0cb98e033985b586b20d81cf8aa761181ae61ce56fcb14077a06"
+    },
+    {
+      "path": "unitree_g1/assets/left_hand_palm_link.STL",
+      "sha256": "23a486b75bd78a9bf03cec25d84d87f97f3dae038cf21a743b6d469b337e4004"
+    },
+    {
+      "path": "unitree_g1/assets/left_hand_thumb_0_link.STL",
+      "sha256": "a90c721661c0622685488a3c74d1e122c7da89242d3a1daef75edb83422d05e0"
+    },
+    {
+      "path": "unitree_g1/assets/left_hand_thumb_1_link.STL",
+      "sha256": "445c54a45bc13ce36001556f66bc0f49c83cb40321205ae4d676bb2874325684"
+    },
+    {
+      "path": "unitree_g1/assets/left_hand_thumb_2_link.STL",
+      "sha256": "3d8dbe5085acfc213d21aa8b0782e89cd79084e9678f3a85fc7b04a86b029db5"
+    },
+    {
+      "path": "unitree_g1/assets/left_hip_pitch_link.STL",
+      "sha256": "4725168105ee768ee31638ef22b53f6be2d7641bfd7cfefe803488d884776fa4"
+    },
+    {
+      "path": "unitree_g1/assets/left_hip_roll_link.STL",
+      "sha256": "91f25922ee8a7c3152790051bebad17b4d9cd243569c38fe340285ff93a97acf"
+    },
+    {
+      "path": "unitree_g1/assets/left_hip_yaw_link.STL",
+      "sha256": "a16d88aa6ddac8083aa7ad55ed317bea44b1fa003d314fba88965b7ed0f3b55b"
+    },
+    {
+      "path": "unitree_g1/assets/left_knee_link.STL",
+      "sha256": "8d92b9e3d3a636761150bb8025e32514c4602b91c7028d523ee42b3e632de477"
+    },
+    {
+      "path": "unitree_g1/assets/left_shoulder_pitch_link.STL",
+      "sha256": "f0d1cfd02fcf0d42f95e678eeca33da3afbcc366ffba5c052847773ec4f31d52"
+    },
+    {
+      "path": "unitree_g1/assets/left_shoulder_roll_link.STL",
+      "sha256": "fb9df21687773522598dc384f1a2945c7519f11cbc8bd372a49170316d6eee88"
+    },
+    {
+      "path": "unitree_g1/assets/left_shoulder_yaw_link.STL",
+      "sha256": "1aa97e9748e924336567992181f78c7cd0652fd52a4afcca3df6b2ef6f9e712e"
+    },
+    {
+      "path": "unitree_g1/assets/left_wrist_pitch_link.STL",
+      "sha256": "b251d8e05047f695d0f536cd78c11973cfa4e78d08cfe82759336cc3471de3a9"
+    },
+    {
+      "path": "unitree_g1/assets/left_wrist_roll_link.STL",
+      "sha256": "edc387c9a0ba8c2237e9b296d32531426fabeb6f53e58df45c76106bca74148c"
+    },
+    {
+      "path": "unitree_g1/assets/left_wrist_yaw_link.STL",
+      "sha256": "83f8fb3a726bf9613d65dd14f0f447cb918c3c95b3938042a0c9c09749267d3b"
+    },
+    {
+      "path": "unitree_g1/assets/logo_link.STL",
+      "sha256": "8571a0a19bc4916fa55f91449f51d5fdefd751000054865a842449429d5f155b"
+    },
+    {
+      "path": "unitree_g1/assets/pelvis.STL",
+      "sha256": "5ba6bbc888e630550140d3c26763f10206da8c8bd30ed886b8ede41c61f57a31"
+    },
+    {
+      "path": "unitree_g1/assets/pelvis_contour_link.STL",
+      "sha256": "5cc5c2c7a312329e3feeb2b03d3fc09fc29705bd01864f6767e51be959662420"
+    },
+    {
+      "path": "unitree_g1/assets/right_ankle_pitch_link.STL",
+      "sha256": "15be426539ec1be70246d4d82a168806db64a41301af8b35c197a33348c787a9"
+    },
+    {
+      "path": "unitree_g1/assets/right_ankle_roll_link.STL",
+      "sha256": "4b66222ea56653e627711b56d0a8949b4920da5df091da0ceb343f54e884e3a5"
+    },
+    {
+      "path": "unitree_g1/assets/right_elbow_link.STL",
+      "sha256": "1be925d7aa268bb8fddf5362b9173066890c7d32092c05638608126e59d1e2ab"
+    },
+    {
+      "path": "unitree_g1/assets/right_hand_index_0_link.STL",
+      "sha256": "12ab4300c95e437e834f9aef772b3b431c671bf34338930b52ad11aef73bbd0d"
+    },
+    {
+      "path": "unitree_g1/assets/right_hand_index_1_link.STL",
+      "sha256": "c9c34efce4563cacdcfd29fc838a982976d40f5442c71219811dcbbf3923a33d"
+    },
+    {
+      "path": "unitree_g1/assets/right_hand_middle_0_link.STL",
+      "sha256": "12ab4300c95e437e834f9aef772b3b431c671bf34338930b52ad11aef73bbd0d"
+    },
+    {
+      "path": "unitree_g1/assets/right_hand_middle_1_link.STL",
+      "sha256": "c9c34efce4563cacdcfd29fc838a982976d40f5442c71219811dcbbf3923a33d"
+    },
+    {
+      "path": "unitree_g1/assets/right_hand_palm_link.STL",
+      "sha256": "86c0b231cc44477d64a6493e5a427ba16617a00738112dd187c652675b086fb9"
+    },
+    {
+      "path": "unitree_g1/assets/right_hand_thumb_0_link.STL",
+      "sha256": "544298d0ea1088f5b276a10cc6a6a9e533efdd91594955fdc956c46211d07f83"
+    },
+    {
+      "path": "unitree_g1/assets/right_hand_thumb_1_link.STL",
+      "sha256": "0a9a820da8dd10f298778b714f1364216e8a5976f4fd3a05689ea26327d44bf6"
+    },
+    {
+      "path": "unitree_g1/assets/right_hand_thumb_2_link.STL",
+      "sha256": "3f1bfb37668e8f61801c8d25f171fa1949e08666be86c67acad7e0079937cc45"
+    },
+    {
+      "path": "unitree_g1/assets/right_hip_pitch_link.STL",
+      "sha256": "e4f3c99d7f4a7d34eadbef9461fc66e3486cb5442db1ec50c86317d459f1a9c6"
+    },
+    {
+      "path": "unitree_g1/assets/right_hip_roll_link.STL",
+      "sha256": "4c254ef66a356f492947f360dd931965477b631e3fcc841f91ccc46d945d54f6"
+    },
+    {
+      "path": "unitree_g1/assets/right_hip_yaw_link.STL",
+      "sha256": "e479c2936ca2057e9eb2f7dff6c189b7419d7b8484dea0b298cbb36a2a6aa668"
+    },
+    {
+      "path": "unitree_g1/assets/right_knee_link.STL",
+      "sha256": "63c4008449c9bbe701a6e2b557b7a252e90cf3a5abcf54cee46862b9a69f8ec8"
+    },
+    {
+      "path": "unitree_g1/assets/right_shoulder_pitch_link.STL",
+      "sha256": "24cdb387e0128dfe602770a81c56cdce3a0181d34d039a11d1aaf8819b7b8c02"
+    },
+    {
+      "path": "unitree_g1/assets/right_shoulder_roll_link.STL",
+      "sha256": "962b97c48f9ce9e8399f45dd9522e0865d19aa9fd299406b2d475a8fc4a53e81"
+    },
+    {
+      "path": "unitree_g1/assets/right_shoulder_yaw_link.STL",
+      "sha256": "a0b76489271da0c72461a344c9ffb0f0c6e64f019ea5014c1624886c442a2fe5"
+    },
+    {
+      "path": "unitree_g1/assets/right_wrist_pitch_link.STL",
+      "sha256": "d22f8f3b3127f15a63e5be1ee273cd5075786c3142f1c3d9f76cbf43d2a26477"
+    },
+    {
+      "path": "unitree_g1/assets/right_wrist_roll_link.STL",
+      "sha256": "a7ee9212ff5b94d6cb7f52bb1bbf3f352194d5b598acff74f4c77d340c5b344f"
+    },
+    {
+      "path": "unitree_g1/assets/right_wrist_yaw_link.STL",
+      "sha256": "bc9dece2d12509707e0057ba2e48df8f3d56db0c79410212963a25e8a50f61a6"
+    },
+    {
+      "path": "unitree_g1/assets/torso_link_rev_1_0.STL",
+      "sha256": "11ddb46f2098efbbd8816b1d65893632d8e78be936376c7cdcd6771899ccc723"
+    },
+    {
+      "path": "unitree_g1/assets/waist_roll_link_rev_1_0.STL",
+      "sha256": "b67c347a05abc3e8ddae600d98a082bee273bb39f8e651647708b0a7140a8a97"
+    },
+    {
+      "path": "unitree_g1/assets/waist_yaw_link_rev_1_0.STL",
+      "sha256": "ec6db442b11f25eed898b5add07940c85d804f300de24dcbd264ccd8be7d554c"
+    }
+  ]
+}

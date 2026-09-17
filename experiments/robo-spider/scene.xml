@@ -1,0 +1,690 @@
+<mujoco model="MM-03 / dual Kinova Gen3 + Robotiq 2F-85">
+  <compiler angle="radian" autolimits="true" />
+  <option timestep=".002" gravity="0 0 -9.81" integrator="implicitfast" />
+  <default>
+    <joint damping=".3" armature=".015" />
+    <geom friction="1 .005 .0001" />
+    <default class="left_arm_root">
+      <default class="left_arm_visual">
+        <geom type="mesh" contype="0" conaffinity="0" group="2" rgba="0.75294 0.75294 0.75294 1" />
+      </default>
+      <default class="left_arm_collision">
+        <geom type="mesh" group="3" />
+      </default>
+      <default class="left_arm_large_actuator">
+        <position kp="2000" kv="100" forcerange="-105 105" />
+      </default>
+      <default class="left_arm_small_actuator">
+        <position kp="500" kv="50" forcerange="-52 52" />
+      </default>
+      <site size="0.001" rgba="0.5 0.5 0.5 0.3" group="4" />
+      <joint damping="0" armature="0" axis="0 0 1" />
+    </default>
+    <default class="left_grip_root">
+      <default class="left_grip_2f85">
+        <mesh scale="0.001 0.001 0.001" />
+        <general biastype="affine" />
+        <joint axis="1 0 0" />
+        <default class="left_grip_driver">
+          <joint range="0 0.8" armature="0.005" damping="0.1" solimplimit="0.95 0.99 0.001" solreflimit="0.005 1" />
+        </default>
+        <default class="left_grip_follower">
+          <joint range="-0.872664 0.872664" armature="0.001" pos="0 -0.018 0.0065" solimplimit="0.95 0.99 0.001" solreflimit="0.005 1" />
+        </default>
+        <default class="left_grip_spring_link">
+          <joint range="-0.29670597283 0.8" armature="0.001" stiffness="0.05" springref="2.62" damping="0.00125" />
+        </default>
+        <default class="left_grip_coupler">
+          <joint range="-1.57 0" armature="0.001" solimplimit="0.95 0.99 0.001" solreflimit="0.005 1" />
+        </default>
+        <default class="left_grip_visual">
+          <geom type="mesh" contype="0" conaffinity="0" group="2" />
+        </default>
+        <default class="left_grip_collision">
+          <geom type="mesh" group="3" />
+          <default class="left_grip_pad_box1">
+            <geom mass="0" type="box" pos="0 -0.0026 0.028125" size="0.011 0.004 0.009375" friction="0.7" solimp="0.95 0.99 0.001" solref="0.004 1" priority="1" rgba="0.55 0.55 0.55 1" />
+          </default>
+          <default class="left_grip_pad_box2">
+            <geom mass="0" type="box" pos="0 -0.0026 0.009375" size="0.011 0.004 0.009375" friction="0.6" solimp="0.95 0.99 0.001" solref="0.004 1" priority="1" rgba="0.45 0.45 0.45 1" />
+          </default>
+        </default>
+      </default>
+    </default>
+    <default class="right_arm_root">
+      <default class="right_arm_visual">
+        <geom type="mesh" contype="0" conaffinity="0" group="2" rgba="0.75294 0.75294 0.75294 1" />
+      </default>
+      <default class="right_arm_collision">
+        <geom type="mesh" group="3" />
+      </default>
+      <default class="right_arm_large_actuator">
+        <position kp="2000" kv="100" forcerange="-105 105" />
+      </default>
+      <default class="right_arm_small_actuator">
+        <position kp="500" kv="50" forcerange="-52 52" />
+      </default>
+      <site size="0.001" rgba="0.5 0.5 0.5 0.3" group="4" />
+      <joint damping="0" armature="0" axis="0 0 1" />
+    </default>
+    <default class="right_grip_root">
+      <default class="right_grip_2f85">
+        <mesh scale="0.001 0.001 0.001" />
+        <general biastype="affine" />
+        <joint axis="1 0 0" />
+        <default class="right_grip_driver">
+          <joint range="0 0.8" armature="0.005" damping="0.1" solimplimit="0.95 0.99 0.001" solreflimit="0.005 1" />
+        </default>
+        <default class="right_grip_follower">
+          <joint range="-0.872664 0.872664" armature="0.001" pos="0 -0.018 0.0065" solimplimit="0.95 0.99 0.001" solreflimit="0.005 1" />
+        </default>
+        <default class="right_grip_spring_link">
+          <joint range="-0.29670597283 0.8" armature="0.001" stiffness="0.05" springref="2.62" damping="0.00125" />
+        </default>
+        <default class="right_grip_coupler">
+          <joint range="-1.57 0" armature="0.001" solimplimit="0.95 0.99 0.001" solreflimit="0.005 1" />
+        </default>
+        <default class="right_grip_visual">
+          <geom type="mesh" contype="0" conaffinity="0" group="2" />
+        </default>
+        <default class="right_grip_collision">
+          <geom type="mesh" group="3" />
+          <default class="right_grip_pad_box1">
+            <geom mass="0" type="box" pos="0 -0.0026 0.028125" size="0.011 0.004 0.009375" friction="0.7" solimp="0.95 0.99 0.001" solref="0.004 1" priority="1" rgba="0.55 0.55 0.55 1" />
+          </default>
+          <default class="right_grip_pad_box2">
+            <geom mass="0" type="box" pos="0 -0.0026 0.009375" size="0.011 0.004 0.009375" friction="0.6" solimp="0.95 0.99 0.001" solref="0.004 1" priority="1" rgba="0.45 0.45 0.45 1" />
+          </default>
+        </default>
+      </default>
+    </default>
+  </default>
+  <visual>
+    <global offwidth="1600" offheight="1000" />
+    <headlight ambient=".35 .35 .35" diffuse=".65 .65 .65" />
+    <quality shadowsize="4096" />
+    <map znear=".01" />
+  </visual>
+  <asset>
+    <texture name="grid" type="2d" builtin="checker" rgb1=".27 .30 .33" rgb2=".29 .32 .35" width="512" height="512" />
+    <material name="floor" texture="grid" texrepeat="16 16" texuniform="true" />
+    <mesh name="chassis_shell" vertex="-0.35000000000000003 -0.26875 -0.04125 0.35000000000000003 -0.26875 -0.04125 0.42500000000000004 -0.19375 -0.04125 0.42500000000000004 0.19375 -0.04125 0.35000000000000003 0.26875 -0.04125 -0.35000000000000003 0.26875 -0.04125 -0.42500000000000004 0.19375 -0.04125 -0.42500000000000004 -0.19375 -0.04125 -0.35000000000000003 -0.26875 0.04125 0.35000000000000003 -0.26875 0.04125 0.42500000000000004 -0.19375 0.04125 0.42500000000000004 0.19375 0.04125 0.35000000000000003 0.26875 0.04125 -0.35000000000000003 0.26875 0.04125 -0.42500000000000004 0.19375 0.04125 -0.42500000000000004 -0.19375 0.04125" />
+    <mesh name="top_panel" vertex="-0.2725 -0.21125000000000002 -0.015 0.2725 -0.21125000000000002 -0.015 0.33125000000000004 -0.15250000000000002 -0.015 0.33125000000000004 0.15250000000000002 -0.015 0.2725 0.21125000000000002 -0.015 -0.2725 0.21125000000000002 -0.015 -0.33125000000000004 0.15250000000000002 -0.015 -0.33125000000000004 -0.15250000000000002 -0.015 -0.2725 -0.21125000000000002 0.015 0.2725 -0.21125000000000002 0.015 0.33125000000000004 -0.15250000000000002 0.015 0.33125000000000004 0.15250000000000002 0.015 0.2725 0.21125000000000002 0.015 -0.2725 0.21125000000000002 0.015 -0.33125000000000004 0.15250000000000002 0.015 -0.33125000000000004 -0.15250000000000002 0.015" />
+    <mesh name="left_arm_base_link" file="../../assets/kinova_gen3/assets/base_link.stl" />
+    <mesh name="left_arm_shoulder_link" file="../../assets/kinova_gen3/assets/shoulder_link.stl" />
+    <mesh name="left_arm_half_arm_1_link" file="../../assets/kinova_gen3/assets/half_arm_1_link.stl" />
+    <mesh name="left_arm_half_arm_2_link" file="../../assets/kinova_gen3/assets/half_arm_2_link.stl" />
+    <mesh name="left_arm_forearm_link" file="../../assets/kinova_gen3/assets/forearm_link.stl" />
+    <mesh name="left_arm_spherical_wrist_1_link" file="../../assets/kinova_gen3/assets/spherical_wrist_1_link.stl" />
+    <mesh name="left_arm_spherical_wrist_2_link" file="../../assets/kinova_gen3/assets/spherical_wrist_2_link.stl" />
+    <mesh name="left_arm_bracelet_with_vision_link" file="../../assets/kinova_gen3/assets/bracelet_with_vision_link.stl" />
+    <material name="left_grip_metal" rgba="0.58 0.58 0.58 1" />
+    <material name="left_grip_silicone" rgba="0.1882 0.1882 0.1882 1" />
+    <material name="left_grip_gray" rgba="0.4627 0.4627 0.4627 1" />
+    <material name="left_grip_black" rgba="0.149 0.149 0.149 1" />
+    <mesh class="left_grip_2f85" file="../../assets/robotiq_2f85/assets/base_mount.stl" name="left_grip_base_mount" />
+    <mesh class="left_grip_2f85" file="../../assets/robotiq_2f85/assets/base.stl" name="left_grip_base" />
+    <mesh class="left_grip_2f85" file="../../assets/robotiq_2f85/assets/driver.stl" name="left_grip_driver" />
+    <mesh class="left_grip_2f85" file="../../assets/robotiq_2f85/assets/coupler.stl" name="left_grip_coupler" />
+    <mesh class="left_grip_2f85" file="../../assets/robotiq_2f85/assets/follower.stl" name="left_grip_follower" />
+    <mesh class="left_grip_2f85" file="../../assets/robotiq_2f85/assets/pad.stl" name="left_grip_pad" />
+    <mesh class="left_grip_2f85" file="../../assets/robotiq_2f85/assets/silicone_pad.stl" name="left_grip_silicone_pad" />
+    <mesh class="left_grip_2f85" file="../../assets/robotiq_2f85/assets/spring_link.stl" name="left_grip_spring_link" />
+    <mesh name="right_arm_base_link" file="../../assets/kinova_gen3/assets/base_link.stl" />
+    <mesh name="right_arm_shoulder_link" file="../../assets/kinova_gen3/assets/shoulder_link.stl" />
+    <mesh name="right_arm_half_arm_1_link" file="../../assets/kinova_gen3/assets/half_arm_1_link.stl" />
+    <mesh name="right_arm_half_arm_2_link" file="../../assets/kinova_gen3/assets/half_arm_2_link.stl" />
+    <mesh name="right_arm_forearm_link" file="../../assets/kinova_gen3/assets/forearm_link.stl" />
+    <mesh name="right_arm_spherical_wrist_1_link" file="../../assets/kinova_gen3/assets/spherical_wrist_1_link.stl" />
+    <mesh name="right_arm_spherical_wrist_2_link" file="../../assets/kinova_gen3/assets/spherical_wrist_2_link.stl" />
+    <mesh name="right_arm_bracelet_with_vision_link" file="../../assets/kinova_gen3/assets/bracelet_with_vision_link.stl" />
+    <material name="right_grip_metal" rgba="0.58 0.58 0.58 1" />
+    <material name="right_grip_silicone" rgba="0.1882 0.1882 0.1882 1" />
+    <material name="right_grip_gray" rgba="0.4627 0.4627 0.4627 1" />
+    <material name="right_grip_black" rgba="0.149 0.149 0.149 1" />
+    <mesh class="right_grip_2f85" file="../../assets/robotiq_2f85/assets/base_mount.stl" name="right_grip_base_mount" />
+    <mesh class="right_grip_2f85" file="../../assets/robotiq_2f85/assets/base.stl" name="right_grip_base" />
+    <mesh class="right_grip_2f85" file="../../assets/robotiq_2f85/assets/driver.stl" name="right_grip_driver" />
+    <mesh class="right_grip_2f85" file="../../assets/robotiq_2f85/assets/coupler.stl" name="right_grip_coupler" />
+    <mesh class="right_grip_2f85" file="../../assets/robotiq_2f85/assets/follower.stl" name="right_grip_follower" />
+    <mesh class="right_grip_2f85" file="../../assets/robotiq_2f85/assets/pad.stl" name="right_grip_pad" />
+    <mesh class="right_grip_2f85" file="../../assets/robotiq_2f85/assets/silicone_pad.stl" name="right_grip_silicone_pad" />
+    <mesh class="right_grip_2f85" file="../../assets/robotiq_2f85/assets/spring_link.stl" name="right_grip_spring_link" />
+  </asset>
+  <worldbody>
+    <light pos="0 -2 6" dir="0 0 -1" diffuse=".9 .86 .8" />
+    <light pos="-3 3 5" dir="0 0 -1" diffuse=".5 .6 .7" />
+    <geom name="ground" type="plane" size="7 7 .1" material="floor" />
+    <geom type="box" pos="-2.5 1 .002" size=".018 2.6 .001" rgba=".6 .67 .69 1" contype="0" conaffinity="0" mass="0" />
+    <geom type="box" pos="2.5 1 .002" size=".018 2.6 .001" rgba=".6 .67 .69 1" contype="0" conaffinity="0" mass="0" />
+    <geom type="box" pos="0 -1.6 .002" size="2.5 .018 .001" rgba=".6 .67 .69 1" contype="0" conaffinity="0" mass="0" />
+    <geom type="box" pos="0 3.6 .002" size="2.5 .018 .001" rgba=".6 .67 .69 1" contype="0" conaffinity="0" mass="0" />
+    <body name="source_table" pos="1.35 0.4 0" euler="0.0 0.0 0.0">
+      <geom type="box" pos="0 0 .575" size=".36 .65 .025" rgba=".57 .61 .62 1" name="source_table_top" />
+      <geom type="box" pos="0 0 .54" size=".32 .61 .016" rgba=".055 .068 .08 1" />
+      <geom type="box" pos="-0.29 -0.56 .27" size=".024 .024 .27" rgba=".32 .39 .43 1" />
+      <geom type="box" pos="-0.29 -0.56 .018" size=".04 .04 .018" rgba=".055 .068 .08 1" />
+      <geom type="box" pos="-0.29 0.56 .27" size=".024 .024 .27" rgba=".32 .39 .43 1" />
+      <geom type="box" pos="-0.29 0.56 .018" size=".04 .04 .018" rgba=".055 .068 .08 1" />
+      <geom type="box" pos="0.29 -0.56 .27" size=".024 .024 .27" rgba=".32 .39 .43 1" />
+      <geom type="box" pos="0.29 -0.56 .018" size=".04 .04 .018" rgba=".055 .068 .08 1" />
+      <geom type="box" pos="0.29 0.56 .27" size=".024 .024 .27" rgba=".32 .39 .43 1" />
+      <geom type="box" pos="0.29 0.56 .018" size=".04 .04 .018" rgba=".055 .068 .08 1" />
+      <geom type="capsule" fromto="-.29 -0.56 .16 .29 -0.56 .16" size="0.012" rgba=".32 .39 .43 1" />
+      <geom type="capsule" fromto="-.29 0.56 .16 .29 0.56 .16" size="0.012" rgba=".32 .39 .43 1" />
+    </body>
+    <body name="destination_table" pos="-1.1 2.65 0" euler="0.0 0.0 1.5707963267948966">
+      <geom type="box" pos="0 0 .575" size=".36 .65 .025" rgba=".57 .61 .62 1" name="destination_table_top" />
+      <geom type="box" pos="0 0 .54" size=".32 .61 .016" rgba=".055 .068 .08 1" />
+      <geom type="box" pos="-0.29 -0.56 .27" size=".024 .024 .27" rgba=".32 .39 .43 1" />
+      <geom type="box" pos="-0.29 -0.56 .018" size=".04 .04 .018" rgba=".055 .068 .08 1" />
+      <geom type="box" pos="-0.29 0.56 .27" size=".024 .024 .27" rgba=".32 .39 .43 1" />
+      <geom type="box" pos="-0.29 0.56 .018" size=".04 .04 .018" rgba=".055 .068 .08 1" />
+      <geom type="box" pos="0.29 -0.56 .27" size=".024 .024 .27" rgba=".32 .39 .43 1" />
+      <geom type="box" pos="0.29 -0.56 .018" size=".04 .04 .018" rgba=".055 .068 .08 1" />
+      <geom type="box" pos="0.29 0.56 .27" size=".024 .024 .27" rgba=".32 .39 .43 1" />
+      <geom type="box" pos="0.29 0.56 .018" size=".04 .04 .018" rgba=".055 .068 .08 1" />
+      <geom type="capsule" fromto="-.29 -0.56 .16 .29 -0.56 .16" size="0.012" rgba=".32 .39 .43 1" />
+      <geom type="capsule" fromto="-.29 0.56 .16 .29 0.56 .16" size="0.012" rgba=".32 .39 .43 1" />
+      <geom type="box" pos="-.17 -0.28 .602" size=".13 .13 .002" rgba=".95 .35 .10 1" contype="0" conaffinity="0" mass="0" />
+      <geom type="box" pos="-.17 -0.28 .605" size=".105 .105 .001" rgba=".055 .068 .08 1" contype="0" conaffinity="0" mass="0" />
+      <geom type="box" pos="-.17 0.28 .602" size=".13 .13 .002" rgba=".04 .55 .62 1" contype="0" conaffinity="0" mass="0" />
+      <geom type="box" pos="-.17 0.28 .605" size=".105 .105 .001" rgba=".055 .068 .08 1" contype="0" conaffinity="0" mass="0" />
+    </body>
+    <body name="target_mug" pos="1.15 .12 .60576" euler="0 0 1.57079632679">
+      <freejoint />
+      <geom type="cylinder" pos="0.0 0.0 0.0" size="0.03456 0.0057599999999999995" rgba=".95 .35 .10 1" mass="0.02239488" />
+      <geom type="box" pos="0.03384 0.0 0.03456" size="0.0028799999999999997 0.00504 0.0324" rgba=".95 .35 .10 1" euler="0.0 0.0 0.0" mass="0.0014929919999999998" />
+      <geom type="box" pos="0.03268692996162207 0.008758436486269302 0.03456" size="0.0028799999999999997 0.00504 0.0324" rgba=".95 .35 .10 1" euler="0.0 0.0 0.2617993877991494" mass="0.0014929919999999998" />
+      <geom type="box" pos="0.029306299664065404 0.016919999999999998 0.03456" size="0.0028799999999999997 0.00504 0.0324" rgba=".95 .35 .10 1" euler="0.0 0.0 0.5235987755982988" mass="0.0014929919999999998" />
+      <geom type="box" pos="0.023928493475352766 0.023928493475352766 0.03456" size="0.0028799999999999997 0.00504 0.0324" rgba=".95 .35 .10 1" euler="0.0 0.0 0.7853981633974483" mass="0.0014929919999999998" />
+      <geom type="box" pos="0.016920000000000004 0.029306299664065397 0.03456" size="0.0028799999999999997 0.00504 0.0324" rgba=".95 .35 .10 1" euler="0.0 0.0 1.0471975511965976" mass="0.0014929919999999998" />
+      <geom type="box" pos="0.008758436486269302 0.03268692996162207 0.03456" size="0.0028799999999999997 0.00504 0.0324" rgba=".95 .35 .10 1" euler="0.0 0.0 1.3089969389957472" mass="0.0014929919999999998" />
+      <geom type="box" pos="2.0721023841573217e-18 0.03384 0.03456" size="0.0028799999999999997 0.00504 0.0324" rgba=".95 .35 .10 1" euler="0.0 0.0 1.5707963267948966" mass="0.0014929919999999998" />
+      <geom type="box" pos="-0.008758436486269299 0.03268692996162207 0.03456" size="0.0028799999999999997 0.00504 0.0324" rgba=".95 .35 .10 1" euler="0.0 0.0 1.8325957145940461" mass="0.0014929919999999998" />
+      <geom type="box" pos="-0.016919999999999994 0.029306299664065404 0.03456" size="0.0028799999999999997 0.00504 0.0324" rgba=".95 .35 .10 1" euler="0.0 0.0 2.0943951023931953" mass="0.0014929919999999998" />
+      <geom type="box" pos="-0.023928493475352766 0.023928493475352766 0.03456" size="0.0028799999999999997 0.00504 0.0324" rgba=".95 .35 .10 1" euler="0.0 0.0 2.356194490192345" mass="0.0014929919999999998" />
+      <geom type="box" pos="-0.029306299664065404 0.016919999999999998 0.03456" size="0.0028799999999999997 0.00504 0.0324" rgba=".95 .35 .10 1" euler="0.0 0.0 2.6179938779914944" mass="0.0014929919999999998" />
+      <geom type="box" pos="-0.03268692996162207 0.008758436486269311 0.03456" size="0.0028799999999999997 0.00504 0.0324" rgba=".95 .35 .10 1" euler="0.0 0.0 2.8797932657906435" mass="0.0014929919999999998" />
+      <geom type="box" pos="-0.03384 4.144204768314643e-18 0.03456" size="0.0028799999999999997 0.00504 0.0324" rgba=".95 .35 .10 1" euler="0.0 0.0 3.141592653589793" mass="0.0014929919999999998" />
+      <geom type="box" pos="-0.03268692996162207 -0.008758436486269304 0.03456" size="0.0028799999999999997 0.00504 0.0324" rgba=".95 .35 .10 1" euler="0.0 0.0 3.4033920413889427" mass="0.0014929919999999998" />
+      <geom type="box" pos="-0.029306299664065408 -0.01691999999999999 0.03456" size="0.0028799999999999997 0.00504 0.0324" rgba=".95 .35 .10 1" euler="0.0 0.0 3.6651914291880923" mass="0.0014929919999999998" />
+      <geom type="box" pos="-0.023928493475352784 -0.023928493475352752 0.03456" size="0.0028799999999999997 0.00504 0.0324" rgba=".95 .35 .10 1" euler="0.0 0.0 3.9269908169872414" mass="0.0014929919999999998" />
+      <geom type="box" pos="-0.016920000000000015 -0.029306299664065394 0.03456" size="0.0028799999999999997 0.00504 0.0324" rgba=".95 .35 .10 1" euler="0.0 0.0 4.1887902047863905" mass="0.0014929919999999998" />
+      <geom type="box" pos="-0.008758436486269299 -0.03268692996162207 0.03456" size="0.0028799999999999997 0.00504 0.0324" rgba=".95 .35 .10 1" euler="0.0 0.0 4.4505895925855405" mass="0.0014929919999999998" />
+      <geom type="box" pos="-6.216307152471964e-18 -0.03384 0.03456" size="0.0028799999999999997 0.00504 0.0324" rgba=".95 .35 .10 1" euler="0.0 0.0 4.71238898038469" mass="0.0014929919999999998" />
+      <geom type="box" pos="0.008758436486269287 -0.03268692996162207 0.03456" size="0.0028799999999999997 0.00504 0.0324" rgba=".95 .35 .10 1" euler="0.0 0.0 4.974188368183839" mass="0.0014929919999999998" />
+      <geom type="box" pos="0.016920000000000004 -0.029306299664065397 0.03456" size="0.0028799999999999997 0.00504 0.0324" rgba=".95 .35 .10 1" euler="0.0 0.0 5.235987755982989" mass="0.0014929919999999998" />
+      <geom type="box" pos="0.023928493475352763 -0.023928493475352773 0.03456" size="0.0028799999999999997 0.00504 0.0324" rgba=".95 .35 .10 1" euler="0.0 0.0 5.497787143782138" mass="0.0014929919999999998" />
+      <geom type="box" pos="0.029306299664065394 -0.016920000000000015 0.03456" size="0.0028799999999999997 0.00504 0.0324" rgba=".95 .35 .10 1" euler="0.0 0.0 5.759586531581287" mass="0.0014929919999999998" />
+      <geom type="box" pos="0.03268692996162206 -0.00875843648626933 0.03456" size="0.0028799999999999997 0.00504 0.0324" rgba=".95 .35 .10 1" euler="0.0 0.0 6.021385919380437" mass="0.0014929919999999998" />
+      <geom type="capsule" fromto="0.0 -0.03528 0.010799999999999999 0.0 -0.06263999999999999 0.018" size="0.00504" rgba=".95 .35 .10 1" mass="0.002612736" />
+      <geom type="capsule" fromto="0.0 -0.06263999999999999 0.018 0.0 -0.06263999999999999 0.052559999999999996" size="0.00504" rgba=".95 .35 .10 1" mass="0.002612736" />
+      <geom type="capsule" fromto="0.0 -0.06263999999999999 0.052559999999999996 0.0 -0.03528 0.06048" size="0.00504" rgba=".95 .35 .10 1" mass="0.002612736" />
+    </body>
+    <body name="target_block" pos="1.14 .69 .645">
+      <freejoint />
+      <geom type="box" pos="0 0 0" size=".045 .035 .045" rgba=".04 .55 .62 1" mass=".16" />
+      <geom type="box" pos="0 0 .046" size=".028 .023 .001" rgba=".73 .77 .78 1" contype="0" conaffinity="0" mass="0" />
+    </body>
+    <body name="distractor_canister" pos="1.49 .51 .65">
+      <freejoint />
+      <geom type="cylinder" pos="0 0 0" size="0.045 0.05" rgba=".73 .77 .78 1" mass=".2" />
+      <geom type="cylinder" pos="0 0 .052" size="0.046 0.006" rgba=".055 .068 .08 1" mass=".02" />
+    </body>
+    <body name="distractor_block" pos="1.50 .12 .625">
+      <freejoint />
+      <geom type="box" pos="0 0 0" size=".065 .035 .025" rgba=".72 .62 .3 1" mass=".12" euler="0.0 0.0 0.3490658503988659" />
+    </body>
+    <body name="distractor_puck" pos="1.47 .83 .615">
+      <freejoint />
+      <geom type="cylinder" pos="0 0 0" size="0.05 0.015" rgba=".055 .068 .08 1" mass=".1" />
+    </body>
+    <body name="barrier" pos=".4 1.5 0">
+      <geom type="box" pos="0 0 .24" size=".73 .08 .24" rgba=".32 .39 .43 1" />
+      <geom type="box" pos="-0.57 0 .025" size=".12 .2 .025" rgba=".055 .068 .08 1" />
+      <geom type="box" pos="0.57 0 .025" size=".12 .2 .025" rgba=".055 .068 .08 1" />
+      <geom type="box" pos="0 -0.081 .39" size=".73 .001 .018" rgba=".85 .55 .16 1" contype="0" conaffinity="0" mass="0" />
+      <geom type="box" pos="0 0.081 .39" size=".73 .001 .018" rgba=".85 .55 .16 1" contype="0" conaffinity="0" mass="0" />
+    </body>
+    <geom type="box" pos="-.9 -1.25 .003" size=".65 .012 .002" rgba=".04 .55 .62 1" contype="0" conaffinity="0" mass="0" />
+    <geom type="box" pos="-.9 -0.25 .003" size=".65 .012 .002" rgba=".04 .55 .62 1" contype="0" conaffinity="0" mass="0" />
+    <body name="robot" pos="-1.125 -0.9375 0.4375" euler="0.0 0.0 0.4886921905584123">
+      <freejoint name="root" />
+      <geom type="mesh" mesh="chassis_shell" pos="-0.03125 0.0 0.0225" rgba=".73 .77 .78 1" mass="1.35" />
+      <geom type="mesh" mesh="top_panel" pos="-0.06875 0.0 0.0775" rgba=".055 .068 .08 1" mass=".4" />
+      <geom type="box" pos="-0.043750000000000004 0.0 -0.0225" size="0.3625 0.20625000000000002 0.03125" rgba=".055 .068 .08 1" mass="1.1" />
+      <geom type="box" pos="-0.043750000000000004 -0.22499999999999998 -0.03125" size="0.35000000000000003 0.0225 0.0175" rgba=".32 .39 .43 1" mass=".14" />
+      <geom type="box" pos="-0.043750000000000004 0.22499999999999998 -0.03125" size="0.35000000000000003 0.0225 0.0175" rgba=".32 .39 .43 1" mass=".14" />
+      <geom type="box" pos="-0.28750000000000003 0.0 0.095" size="0.0075 0.11499999999999999 0.001875" rgba=".32 .39 .43 1" contype="0" conaffinity="0" mass="0" />
+      <geom type="box" pos="-0.25875 0.0 0.095" size="0.0075 0.11499999999999999 0.001875" rgba=".32 .39 .43 1" contype="0" conaffinity="0" mass="0" />
+      <geom type="box" pos="-0.22999999999999998 0.0 0.095" size="0.0075 0.11499999999999999 0.001875" rgba=".32 .39 .43 1" contype="0" conaffinity="0" mass="0" />
+      <geom type="box" pos="-0.20125 0.0 0.095" size="0.0075 0.11499999999999999 0.001875" rgba=".32 .39 .43 1" contype="0" conaffinity="0" mass="0" />
+      <geom type="box" pos="-0.17250000000000001 0.0 0.095" size="0.0075 0.11499999999999999 0.001875" rgba=".32 .39 .43 1" contype="0" conaffinity="0" mass="0" />
+      <geom type="cylinder" pos="0.1625 -0.15625 0.095" size="0.00625 0.0025" rgba=".32 .39 .43 1" contype="0" conaffinity="0" mass="0" />
+      <geom type="cylinder" pos="0.1625 0.15625 0.095" size="0.00625 0.0025" rgba=".32 .39 .43 1" contype="0" conaffinity="0" mass="0" />
+      <geom type="box" pos="0.3 0.0 0.04875" size="0.06875 0.18125 0.035" rgba=".055 .068 .08 1" mass=".25" />
+      <body name="leg_-1_0" pos="-0.325 -0.33 -0.0225" euler="0.0 0.0 -1.9547687622336491">
+        <joint name="leg_-1_0_yaw" type="hinge" axis="0 0 1" range="-0.6981317007977318 0.6981317007977318" />
+        <geom type="cylinder" pos="0.0 0.0 0.0" size="0.051250000000000004 0.035" rgba=".055 .068 .08 1" mass=".14" />
+        <geom type="cylinder" pos="0.0 0.0 0.0375" size="0.03375 0.005" rgba=".32 .39 .43 1" mass=".03" />
+        <body pos="0.03125 0.0 0.0">
+          <joint name="leg_-1_0_hip" type="hinge" axis="0 1 0" range="-1.1344640137963142 1.1344640137963142" />
+          <geom type="box" pos="0.13125 0.0 0.015625" size="0.028749999999999998 0.03375 0.13217678739097874" rgba=".73 .77 .78 1" euler="0.0 1.452306367636759 0.0" mass=".20" />
+          <body pos="0.2625 0.0 0.03125">
+            <joint name="leg_-1_0_knee" type="hinge" axis="0 1 0" range="-1.5707963267948966 1.1344640137963142" />
+            <geom type="cylinder" pos="0.0 0.0 0.0" size="0.043750000000000004 0.04" rgba=".055 .068 .08 1" euler="1.5707963267948966 0.0 0.0" mass=".12" />
+            <geom type="cylinder" pos="0.0 -0.0475 0.0" size="0.03 0.0075" rgba=".32 .39 .43 1" contype="0" conaffinity="0" mass="0" euler="1.5707963267948966 0.0 0.0" />
+            <geom type="box" pos="0.0625 0.0 -0.208125" size="0.025 0.03125 0.195864470042425" rgba=".32 .39 .43 1" euler="0.0 2.816814863233679 0.0" mass=".20" />
+            <geom type="ellipsoid" pos="0.125 0.0 -0.42125" size="0.0475 0.03875 0.025" rgba=".055 .068 .08 1" mass=".06" />
+          </body>
+        </body>
+      </body>
+      <body name="leg_-1_1" pos="0.0 -0.33 -0.0225" euler="0.0 0.0 -1.5707963267948966">
+        <joint name="leg_-1_1_yaw" type="hinge" axis="0 0 1" range="-0.6981317007977318 0.6981317007977318" />
+        <geom type="cylinder" pos="0.0 0.0 0.0" size="0.051250000000000004 0.035" rgba=".055 .068 .08 1" mass=".14" />
+        <geom type="cylinder" pos="0.0 0.0 0.0375" size="0.03375 0.005" rgba=".32 .39 .43 1" mass=".03" />
+        <body pos="0.03125 0.0 0.0">
+          <joint name="leg_-1_1_hip" type="hinge" axis="0 1 0" range="-1.1344640137963142 1.1344640137963142" />
+          <geom type="box" pos="0.13125 0.0 0.015625" size="0.028749999999999998 0.03375 0.13217678739097874" rgba=".73 .77 .78 1" euler="0.0 1.452306367636759 0.0" mass=".20" />
+          <body pos="0.2625 0.0 0.03125">
+            <joint name="leg_-1_1_knee" type="hinge" axis="0 1 0" range="-1.5707963267948966 1.1344640137963142" />
+            <geom type="cylinder" pos="0.0 0.0 0.0" size="0.043750000000000004 0.04" rgba=".055 .068 .08 1" euler="1.5707963267948966 0.0 0.0" mass=".12" />
+            <geom type="cylinder" pos="0.0 -0.0475 0.0" size="0.03 0.0075" rgba=".32 .39 .43 1" contype="0" conaffinity="0" mass="0" euler="1.5707963267948966 0.0 0.0" />
+            <geom type="box" pos="0.0625 0.0 -0.208125" size="0.025 0.03125 0.195864470042425" rgba=".32 .39 .43 1" euler="0.0 2.816814863233679 0.0" mass=".20" />
+            <geom type="ellipsoid" pos="0.125 0.0 -0.42125" size="0.0475 0.03875 0.025" rgba=".055 .068 .08 1" mass=".06" />
+          </body>
+        </body>
+      </body>
+      <body name="leg_-1_2" pos="0.325 -0.33 -0.0225" euler="0.0 0.0 -1.1868238913561442">
+        <joint name="leg_-1_2_yaw" type="hinge" axis="0 0 1" range="-0.6981317007977318 0.6981317007977318" />
+        <geom type="cylinder" pos="0.0 0.0 0.0" size="0.051250000000000004 0.035" rgba=".055 .068 .08 1" mass=".14" />
+        <geom type="cylinder" pos="0.0 0.0 0.0375" size="0.03375 0.005" rgba=".32 .39 .43 1" mass=".03" />
+        <body pos="0.03125 0.0 0.0">
+          <joint name="leg_-1_2_hip" type="hinge" axis="0 1 0" range="-1.1344640137963142 1.1344640137963142" />
+          <geom type="box" pos="0.13125 0.0 0.015625" size="0.028749999999999998 0.03375 0.13217678739097874" rgba=".73 .77 .78 1" euler="0.0 1.452306367636759 0.0" mass=".20" />
+          <body pos="0.2625 0.0 0.03125">
+            <joint name="leg_-1_2_knee" type="hinge" axis="0 1 0" range="-1.5707963267948966 1.1344640137963142" />
+            <geom type="cylinder" pos="0.0 0.0 0.0" size="0.043750000000000004 0.04" rgba=".055 .068 .08 1" euler="1.5707963267948966 0.0 0.0" mass=".12" />
+            <geom type="cylinder" pos="0.0 -0.0475 0.0" size="0.03 0.0075" rgba=".32 .39 .43 1" contype="0" conaffinity="0" mass="0" euler="1.5707963267948966 0.0 0.0" />
+            <geom type="box" pos="0.0625 0.0 -0.208125" size="0.025 0.03125 0.195864470042425" rgba=".32 .39 .43 1" euler="0.0 2.816814863233679 0.0" mass=".20" />
+            <geom type="ellipsoid" pos="0.125 0.0 -0.42125" size="0.0475 0.03875 0.025" rgba=".055 .068 .08 1" mass=".06" />
+          </body>
+        </body>
+      </body>
+      <body name="leg_1_0" pos="-0.325 0.33 -0.0225" euler="0.0 0.0 1.9547687622336491">
+        <joint name="leg_1_0_yaw" type="hinge" axis="0 0 1" range="-0.6981317007977318 0.6981317007977318" />
+        <geom type="cylinder" pos="0.0 0.0 0.0" size="0.051250000000000004 0.035" rgba=".055 .068 .08 1" mass=".14" />
+        <geom type="cylinder" pos="0.0 0.0 0.0375" size="0.03375 0.005" rgba=".32 .39 .43 1" mass=".03" />
+        <body pos="0.03125 0.0 0.0">
+          <joint name="leg_1_0_hip" type="hinge" axis="0 1 0" range="-1.1344640137963142 1.1344640137963142" />
+          <geom type="box" pos="0.13125 0.0 0.015625" size="0.028749999999999998 0.03375 0.13217678739097874" rgba=".73 .77 .78 1" euler="0.0 1.452306367636759 0.0" mass=".20" />
+          <body pos="0.2625 0.0 0.03125">
+            <joint name="leg_1_0_knee" type="hinge" axis="0 1 0" range="-1.5707963267948966 1.1344640137963142" />
+            <geom type="cylinder" pos="0.0 0.0 0.0" size="0.043750000000000004 0.04" rgba=".055 .068 .08 1" euler="1.5707963267948966 0.0 0.0" mass=".12" />
+            <geom type="cylinder" pos="0.0 -0.0475 0.0" size="0.03 0.0075" rgba=".32 .39 .43 1" contype="0" conaffinity="0" mass="0" euler="1.5707963267948966 0.0 0.0" />
+            <geom type="box" pos="0.0625 0.0 -0.208125" size="0.025 0.03125 0.195864470042425" rgba=".32 .39 .43 1" euler="0.0 2.816814863233679 0.0" mass=".20" />
+            <geom type="ellipsoid" pos="0.125 0.0 -0.42125" size="0.0475 0.03875 0.025" rgba=".055 .068 .08 1" mass=".06" />
+          </body>
+        </body>
+      </body>
+      <body name="leg_1_1" pos="0.0 0.33 -0.0225" euler="0.0 0.0 1.5707963267948966">
+        <joint name="leg_1_1_yaw" type="hinge" axis="0 0 1" range="-0.6981317007977318 0.6981317007977318" />
+        <geom type="cylinder" pos="0.0 0.0 0.0" size="0.051250000000000004 0.035" rgba=".055 .068 .08 1" mass=".14" />
+        <geom type="cylinder" pos="0.0 0.0 0.0375" size="0.03375 0.005" rgba=".32 .39 .43 1" mass=".03" />
+        <body pos="0.03125 0.0 0.0">
+          <joint name="leg_1_1_hip" type="hinge" axis="0 1 0" range="-1.1344640137963142 1.1344640137963142" />
+          <geom type="box" pos="0.13125 0.0 0.015625" size="0.028749999999999998 0.03375 0.13217678739097874" rgba=".73 .77 .78 1" euler="0.0 1.452306367636759 0.0" mass=".20" />
+          <body pos="0.2625 0.0 0.03125">
+            <joint name="leg_1_1_knee" type="hinge" axis="0 1 0" range="-1.5707963267948966 1.1344640137963142" />
+            <geom type="cylinder" pos="0.0 0.0 0.0" size="0.043750000000000004 0.04" rgba=".055 .068 .08 1" euler="1.5707963267948966 0.0 0.0" mass=".12" />
+            <geom type="cylinder" pos="0.0 -0.0475 0.0" size="0.03 0.0075" rgba=".32 .39 .43 1" contype="0" conaffinity="0" mass="0" euler="1.5707963267948966 0.0 0.0" />
+            <geom type="box" pos="0.0625 0.0 -0.208125" size="0.025 0.03125 0.195864470042425" rgba=".32 .39 .43 1" euler="0.0 2.816814863233679 0.0" mass=".20" />
+            <geom type="ellipsoid" pos="0.125 0.0 -0.42125" size="0.0475 0.03875 0.025" rgba=".055 .068 .08 1" mass=".06" />
+          </body>
+        </body>
+      </body>
+      <body name="leg_1_2" pos="0.325 0.33 -0.0225" euler="0.0 0.0 1.1868238913561442">
+        <joint name="leg_1_2_yaw" type="hinge" axis="0 0 1" range="-0.6981317007977318 0.6981317007977318" />
+        <geom type="cylinder" pos="0.0 0.0 0.0" size="0.051250000000000004 0.035" rgba=".055 .068 .08 1" mass=".14" />
+        <geom type="cylinder" pos="0.0 0.0 0.0375" size="0.03375 0.005" rgba=".32 .39 .43 1" mass=".03" />
+        <body pos="0.03125 0.0 0.0">
+          <joint name="leg_1_2_hip" type="hinge" axis="0 1 0" range="-1.1344640137963142 1.1344640137963142" />
+          <geom type="box" pos="0.13125 0.0 0.015625" size="0.028749999999999998 0.03375 0.13217678739097874" rgba=".73 .77 .78 1" euler="0.0 1.452306367636759 0.0" mass=".20" />
+          <body pos="0.2625 0.0 0.03125">
+            <joint name="leg_1_2_knee" type="hinge" axis="0 1 0" range="-1.5707963267948966 1.1344640137963142" />
+            <geom type="cylinder" pos="0.0 0.0 0.0" size="0.043750000000000004 0.04" rgba=".055 .068 .08 1" euler="1.5707963267948966 0.0 0.0" mass=".12" />
+            <geom type="cylinder" pos="0.0 -0.0475 0.0" size="0.03 0.0075" rgba=".32 .39 .43 1" contype="0" conaffinity="0" mass="0" euler="1.5707963267948966 0.0 0.0" />
+            <geom type="box" pos="0.0625 0.0 -0.208125" size="0.025 0.03125 0.195864470042425" rgba=".32 .39 .43 1" euler="0.0 2.816814863233679 0.0" mass=".20" />
+            <geom type="ellipsoid" pos="0.125 0.0 -0.42125" size="0.0475 0.03875 0.025" rgba=".055 .068 .08 1" mass=".06" />
+          </body>
+        </body>
+      </body>
+      <geom type="box" pos="0.36874999999999997 0.0 0.09375" size="0.03125 0.08875 0.026250000000000002" rgba=".055 .068 .08 1" mass=".11" />
+      <geom type="cylinder" pos="0.4025 -0.05499999999999999 0.09375" size="0.01125 0.00375" rgba=".035 .08 .10 1" contype="0" conaffinity="0" mass="0" euler="0.0 1.5707963267948966 0.0" />
+      <geom type="cylinder" pos="0.4025 0.05499999999999999 0.09375" size="0.01125 0.00375" rgba=".035 .08 .10 1" contype="0" conaffinity="0" mass="0" euler="0.0 1.5707963267948966 0.0" />
+      <camera name="head" pos="0.40750000000000003 0.0 0.1" xyaxes="0 -1 0 .12 0 .993" fovy="78" />
+      <geom name="left_mount_plate" type="box" pos=".15 0.29 .076" size=".065 .07 .024" rgba=".12 .15 .17 1" mass=".25" />
+      <body name="left_arm_base_link" pos=".15 0.29 .10" childclass="left_arm_root" euler="0 0 0">
+        <inertial pos="-0.000648 -0.000166 0.084487" quat="0.999294 0.00139618 -0.0118387 0.035636" mass="1.697" diaginertia="0.00462407 0.00449437 0.00207755" />
+        <geom class="left_arm_visual" mesh="left_arm_base_link" />
+        <geom class="left_arm_collision" mesh="left_arm_base_link" />
+        <body name="left_arm_shoulder_link" pos="0 0 0.15643" quat="0 1 0 0">
+          <inertial pos="-2.3e-05 -0.010364 -0.07336" quat="0.707051 0.0451246 -0.0453544 0.704263" mass="1.3773" diaginertia="0.00488868 0.00457 0.00135132" />
+          <joint name="left_arm_joint_1" range="-6.283185 6.283185" />
+          <geom class="left_arm_visual" mesh="left_arm_shoulder_link" />
+          <geom class="left_arm_collision" mesh="left_arm_shoulder_link" />
+          <body name="left_arm_half_arm_1_link" pos="0 0.005375 -0.12838" quat="1 1 0 0">
+            <inertial pos="-4.4e-05 -0.09958 -0.013278" quat="0.482348 0.516286 -0.516862 0.483366" mass="1.1636" diaginertia="0.0113017 0.011088 0.00102532" />
+            <joint name="left_arm_joint_2" range="-2.24 2.24" />
+            <geom class="left_arm_visual" mesh="left_arm_half_arm_1_link" />
+            <geom class="left_arm_collision" mesh="left_arm_half_arm_1_link" />
+            <body name="left_arm_half_arm_2_link" pos="0 -0.21038 -0.006375" quat="1 -1 0 0">
+              <inertial pos="-4.4e-05 -0.006641 -0.117892" quat="0.706144 0.0213722 -0.0209128 0.707437" mass="1.1636" diaginertia="0.0111633 0.010932 0.00100671" />
+              <joint name="left_arm_joint_3" range="-6.283185 6.283185" />
+              <geom class="left_arm_visual" mesh="left_arm_half_arm_2_link" />
+              <geom class="left_arm_collision" mesh="left_arm_half_arm_2_link" />
+              <body name="left_arm_forearm_link" pos="0 0.006375 -0.21038" quat="1 1 0 0">
+                <inertial pos="-1.8e-05 -0.075478 -0.015006" quat="0.483678 0.515961 -0.515859 0.483455" mass="0.9302" diaginertia="0.00834839 0.008147 0.000598606" />
+                <joint name="left_arm_joint_4" range="-2.57 2.57" />
+                <geom class="left_arm_visual" mesh="left_arm_forearm_link" />
+                <geom class="left_arm_collision" mesh="left_arm_forearm_link" />
+                <body name="left_arm_spherical_wrist_1_link" pos="0 -0.20843 -0.006375" quat="1 -1 0 0">
+                  <inertial pos="1e-06 -0.009432 -0.063883" quat="0.703558 0.0707492 -0.0707492 0.703558" mass="0.6781" diaginertia="0.00165901 0.001596 0.000346988" />
+                  <joint name="left_arm_joint_5" range="-6.283185 6.283185" />
+                  <geom class="left_arm_visual" mesh="left_arm_spherical_wrist_1_link" />
+                  <geom class="left_arm_collision" mesh="left_arm_spherical_wrist_1_link" />
+                  <body name="left_arm_spherical_wrist_2_link" pos="0 0.00017505 -0.10593" quat="1 1 0 0">
+                    <inertial pos="1e-06 -0.045483 -0.00965" quat="0.44426 0.550121 -0.550121 0.44426" mass="0.6781" diaginertia="0.00170087 0.001641 0.00035013" />
+                    <joint name="left_arm_joint_6" range="-2.09 2.09" />
+                    <geom class="left_arm_visual" mesh="left_arm_spherical_wrist_2_link" />
+                    <geom class="left_arm_collision" mesh="left_arm_spherical_wrist_2_link" />
+                    <body name="left_arm_bracelet_link" pos="0 -0.10593 -0.00017505" quat="1 -1 0 0">
+                      <inertial pos="0.000281 0.011402 -0.029798" quat="0.394358 0.596779 -0.577293 0.393789" mass="0.5" diaginertia="0.000657336 0.000587019 0.000320645" />
+                      <joint name="left_arm_joint_7" range="-6.283185 6.283185" />
+                      <geom class="left_arm_visual" mesh="left_arm_bracelet_with_vision_link" />
+                      <geom class="left_arm_collision" mesh="left_arm_bracelet_with_vision_link" />
+                      <camera name="left_arm_wrist" pos="0 -0.05639 -0.058475" quat="0 0 0 1" fovy="41.83792730009236" resolution="640 480" />
+                      <site name="left_arm_pinch_site" pos="0 0 -0.181525" quat="0 1 0 0" />
+                      <body name="left_grip_base" pos="0 0 -0.06149039" quat="0 -1 1 0" childclass="left_grip_2f85">
+                        <inertial mass="0.777441" pos="0 -2.70394e-05 0.0354675" quat="1 -0.00152849 0 0" diaginertia="0.000260285 0.000225381 0.000152708" />
+                        <geom class="left_grip_visual" mesh="left_grip_base" material="left_grip_black" />
+                        <geom class="left_grip_collision" mesh="left_grip_base" />
+                        <site name="left_grip_pinch" pos="0 0 0.145" type="sphere" group="5" rgba="0.9 0.9 0.9 1" size="0.005" />
+                        <body name="left_grip_right_driver" pos="0 0.0306011 0.054904">
+                          <inertial mass="0.00899563" pos="2.96931e-12 0.0177547 0.00107314" quat="0.681301 0.732003 0 0" diaginertia="1.72352e-06 1.60906e-06 3.22006e-07" />
+                          <joint name="left_grip_right_driver_joint" class="left_grip_driver" />
+                          <geom class="left_grip_visual" mesh="left_grip_driver" material="left_grip_gray" />
+                          <geom class="left_grip_collision" mesh="left_grip_driver" />
+                          <body name="left_grip_right_coupler" pos="0 0.0315 -0.0041">
+                            <inertial mass="0.0140974" pos="0 0.00301209 0.0232175" quat="0.705636 -0.0455904 0.0455904 0.705636" diaginertia="4.16206e-06 3.52216e-06 8.88131e-07" />
+                            <joint name="left_grip_right_coupler_joint" class="left_grip_coupler" />
+                            <geom class="left_grip_visual" mesh="left_grip_coupler" material="left_grip_black" />
+                            <geom class="left_grip_collision" mesh="left_grip_coupler" />
+                          </body>
+                        </body>
+                        <body name="left_grip_right_spring_link" pos="0 0.0132 0.0609">
+                          <inertial mass="0.0221642" pos="-8.65005e-09 0.0181624 0.0212658" quat="0.663403 -0.244737 0.244737 0.663403" diaginertia="8.96853e-06 6.71733e-06 2.63931e-06" />
+                          <joint name="left_grip_right_spring_link_joint" class="left_grip_spring_link" />
+                          <geom class="left_grip_visual" mesh="left_grip_spring_link" material="left_grip_black" />
+                          <geom class="left_grip_collision" mesh="left_grip_spring_link" />
+                          <body name="left_grip_right_follower" pos="0 0.055 0.0375">
+                            <inertial mass="0.0125222" pos="0 -0.011046 0.0124786" quat="1 0.1664 0 0" diaginertia="2.67415e-06 2.4559e-06 6.02031e-07" />
+                            <joint name="left_grip_right_follower_joint" class="left_grip_follower" />
+                            <geom class="left_grip_visual" mesh="left_grip_follower" material="left_grip_black" />
+                            <geom class="left_grip_collision" mesh="left_grip_follower" />
+                            <body name="left_grip_right_pad" pos="0 -0.0189 0.01352">
+                              <geom class="left_grip_pad_box1" name="left_grip_right_pad1" />
+                              <geom class="left_grip_pad_box2" name="left_grip_right_pad2" />
+                              <inertial mass="0.0035" pos="0 -0.0025 0.0185" quat="0.707107 0 0 0.707107" diaginertia="4.73958e-07 3.64583e-07 1.23958e-07" />
+                              <geom class="left_grip_visual" mesh="left_grip_pad" />
+                              <body name="left_grip_right_silicone_pad">
+                                <geom class="left_grip_visual" mesh="left_grip_silicone_pad" material="left_grip_black" />
+                              </body>
+                            </body>
+                          </body>
+                        </body>
+                        <body name="left_grip_left_driver" pos="0 -0.0306011 0.054904" quat="0 0 0 1">
+                          <inertial mass="0.00899563" pos="0 0.0177547 0.00107314" quat="0.681301 0.732003 0 0" diaginertia="1.72352e-06 1.60906e-06 3.22006e-07" />
+                          <joint name="left_grip_left_driver_joint" class="left_grip_driver" />
+                          <geom class="left_grip_visual" mesh="left_grip_driver" material="left_grip_gray" />
+                          <geom class="left_grip_collision" mesh="left_grip_driver" />
+                          <body name="left_grip_left_coupler" pos="0 0.0315 -0.0041">
+                            <inertial mass="0.0140974" pos="0 0.00301209 0.0232175" quat="0.705636 -0.0455904 0.0455904 0.705636" diaginertia="4.16206e-06 3.52216e-06 8.88131e-07" />
+                            <joint name="left_grip_left_coupler_joint" class="left_grip_coupler" />
+                            <geom class="left_grip_visual" mesh="left_grip_coupler" material="left_grip_black" />
+                            <geom class="left_grip_collision" mesh="left_grip_coupler" />
+                          </body>
+                        </body>
+                        <body name="left_grip_left_spring_link" pos="0 -0.0132 0.0609" quat="0 0 0 1">
+                          <inertial mass="0.0221642" pos="-8.65005e-09 0.0181624 0.0212658" quat="0.663403 -0.244737 0.244737 0.663403" diaginertia="8.96853e-06 6.71733e-06 2.63931e-06" />
+                          <joint name="left_grip_left_spring_link_joint" class="left_grip_spring_link" />
+                          <geom class="left_grip_visual" mesh="left_grip_spring_link" material="left_grip_black" />
+                          <geom class="left_grip_collision" mesh="left_grip_spring_link" />
+                          <body name="left_grip_left_follower" pos="0 0.055 0.0375">
+                            <inertial mass="0.0125222" pos="0 -0.011046 0.0124786" quat="1 0.1664 0 0" diaginertia="2.67415e-06 2.4559e-06 6.02031e-07" />
+                            <joint name="left_grip_left_follower_joint" class="left_grip_follower" />
+                            <geom class="left_grip_visual" mesh="left_grip_follower" material="left_grip_black" />
+                            <geom class="left_grip_collision" mesh="left_grip_follower" />
+                            <body name="left_grip_left_pad" pos="0 -0.0189 0.01352">
+                              <geom class="left_grip_pad_box1" name="left_grip_left_pad1" />
+                              <geom class="left_grip_pad_box2" name="left_grip_left_pad2" />
+                              <inertial mass="0.0035" pos="0 -0.0025 0.0185" quat="1 0 0 1" diaginertia="4.73958e-07 3.64583e-07 1.23958e-07" />
+                              <geom class="left_grip_visual" mesh="left_grip_pad" />
+                              <body name="left_grip_left_silicone_pad">
+                                <geom class="left_grip_visual" mesh="left_grip_silicone_pad" material="left_grip_black" />
+                              </body>
+                            </body>
+                          </body>
+                        </body>
+                      </body>
+                    </body>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+      <geom name="right_mount_plate" type="box" pos=".15 -0.29 .076" size=".065 .07 .024" rgba=".12 .15 .17 1" mass=".25" />
+      <body name="right_arm_base_link" pos=".15 -0.29 .10" childclass="right_arm_root" euler="0 0 0">
+        <inertial pos="-0.000648 -0.000166 0.084487" quat="0.999294 0.00139618 -0.0118387 0.035636" mass="1.697" diaginertia="0.00462407 0.00449437 0.00207755" />
+        <geom class="right_arm_visual" mesh="right_arm_base_link" />
+        <geom class="right_arm_collision" mesh="right_arm_base_link" />
+        <body name="right_arm_shoulder_link" pos="0 0 0.15643" quat="0 1 0 0">
+          <inertial pos="-2.3e-05 -0.010364 -0.07336" quat="0.707051 0.0451246 -0.0453544 0.704263" mass="1.3773" diaginertia="0.00488868 0.00457 0.00135132" />
+          <joint name="right_arm_joint_1" range="-6.283185 6.283185" />
+          <geom class="right_arm_visual" mesh="right_arm_shoulder_link" />
+          <geom class="right_arm_collision" mesh="right_arm_shoulder_link" />
+          <body name="right_arm_half_arm_1_link" pos="0 0.005375 -0.12838" quat="1 1 0 0">
+            <inertial pos="-4.4e-05 -0.09958 -0.013278" quat="0.482348 0.516286 -0.516862 0.483366" mass="1.1636" diaginertia="0.0113017 0.011088 0.00102532" />
+            <joint name="right_arm_joint_2" range="-2.24 2.24" />
+            <geom class="right_arm_visual" mesh="right_arm_half_arm_1_link" />
+            <geom class="right_arm_collision" mesh="right_arm_half_arm_1_link" />
+            <body name="right_arm_half_arm_2_link" pos="0 -0.21038 -0.006375" quat="1 -1 0 0">
+              <inertial pos="-4.4e-05 -0.006641 -0.117892" quat="0.706144 0.0213722 -0.0209128 0.707437" mass="1.1636" diaginertia="0.0111633 0.010932 0.00100671" />
+              <joint name="right_arm_joint_3" range="-6.283185 6.283185" />
+              <geom class="right_arm_visual" mesh="right_arm_half_arm_2_link" />
+              <geom class="right_arm_collision" mesh="right_arm_half_arm_2_link" />
+              <body name="right_arm_forearm_link" pos="0 0.006375 -0.21038" quat="1 1 0 0">
+                <inertial pos="-1.8e-05 -0.075478 -0.015006" quat="0.483678 0.515961 -0.515859 0.483455" mass="0.9302" diaginertia="0.00834839 0.008147 0.000598606" />
+                <joint name="right_arm_joint_4" range="-2.57 2.57" />
+                <geom class="right_arm_visual" mesh="right_arm_forearm_link" />
+                <geom class="right_arm_collision" mesh="right_arm_forearm_link" />
+                <body name="right_arm_spherical_wrist_1_link" pos="0 -0.20843 -0.006375" quat="1 -1 0 0">
+                  <inertial pos="1e-06 -0.009432 -0.063883" quat="0.703558 0.0707492 -0.0707492 0.703558" mass="0.6781" diaginertia="0.00165901 0.001596 0.000346988" />
+                  <joint name="right_arm_joint_5" range="-6.283185 6.283185" />
+                  <geom class="right_arm_visual" mesh="right_arm_spherical_wrist_1_link" />
+                  <geom class="right_arm_collision" mesh="right_arm_spherical_wrist_1_link" />
+                  <body name="right_arm_spherical_wrist_2_link" pos="0 0.00017505 -0.10593" quat="1 1 0 0">
+                    <inertial pos="1e-06 -0.045483 -0.00965" quat="0.44426 0.550121 -0.550121 0.44426" mass="0.6781" diaginertia="0.00170087 0.001641 0.00035013" />
+                    <joint name="right_arm_joint_6" range="-2.09 2.09" />
+                    <geom class="right_arm_visual" mesh="right_arm_spherical_wrist_2_link" />
+                    <geom class="right_arm_collision" mesh="right_arm_spherical_wrist_2_link" />
+                    <body name="right_arm_bracelet_link" pos="0 -0.10593 -0.00017505" quat="1 -1 0 0">
+                      <inertial pos="0.000281 0.011402 -0.029798" quat="0.394358 0.596779 -0.577293 0.393789" mass="0.5" diaginertia="0.000657336 0.000587019 0.000320645" />
+                      <joint name="right_arm_joint_7" range="-6.283185 6.283185" />
+                      <geom class="right_arm_visual" mesh="right_arm_bracelet_with_vision_link" />
+                      <geom class="right_arm_collision" mesh="right_arm_bracelet_with_vision_link" />
+                      <camera name="right_arm_wrist" pos="0 -0.05639 -0.058475" quat="0 0 0 1" fovy="41.83792730009236" resolution="640 480" />
+                      <site name="right_arm_pinch_site" pos="0 0 -0.181525" quat="0 1 0 0" />
+                      <body name="right_grip_base" pos="0 0 -0.06149039" quat="0 -1 1 0" childclass="right_grip_2f85">
+                        <inertial mass="0.777441" pos="0 -2.70394e-05 0.0354675" quat="1 -0.00152849 0 0" diaginertia="0.000260285 0.000225381 0.000152708" />
+                        <geom class="right_grip_visual" mesh="right_grip_base" material="right_grip_black" />
+                        <geom class="right_grip_collision" mesh="right_grip_base" />
+                        <site name="right_grip_pinch" pos="0 0 0.145" type="sphere" group="5" rgba="0.9 0.9 0.9 1" size="0.005" />
+                        <body name="right_grip_right_driver" pos="0 0.0306011 0.054904">
+                          <inertial mass="0.00899563" pos="2.96931e-12 0.0177547 0.00107314" quat="0.681301 0.732003 0 0" diaginertia="1.72352e-06 1.60906e-06 3.22006e-07" />
+                          <joint name="right_grip_right_driver_joint" class="right_grip_driver" />
+                          <geom class="right_grip_visual" mesh="right_grip_driver" material="right_grip_gray" />
+                          <geom class="right_grip_collision" mesh="right_grip_driver" />
+                          <body name="right_grip_right_coupler" pos="0 0.0315 -0.0041">
+                            <inertial mass="0.0140974" pos="0 0.00301209 0.0232175" quat="0.705636 -0.0455904 0.0455904 0.705636" diaginertia="4.16206e-06 3.52216e-06 8.88131e-07" />
+                            <joint name="right_grip_right_coupler_joint" class="right_grip_coupler" />
+                            <geom class="right_grip_visual" mesh="right_grip_coupler" material="right_grip_black" />
+                            <geom class="right_grip_collision" mesh="right_grip_coupler" />
+                          </body>
+                        </body>
+                        <body name="right_grip_right_spring_link" pos="0 0.0132 0.0609">
+                          <inertial mass="0.0221642" pos="-8.65005e-09 0.0181624 0.0212658" quat="0.663403 -0.244737 0.244737 0.663403" diaginertia="8.96853e-06 6.71733e-06 2.63931e-06" />
+                          <joint name="right_grip_right_spring_link_joint" class="right_grip_spring_link" />
+                          <geom class="right_grip_visual" mesh="right_grip_spring_link" material="right_grip_black" />
+                          <geom class="right_grip_collision" mesh="right_grip_spring_link" />
+                          <body name="right_grip_right_follower" pos="0 0.055 0.0375">
+                            <inertial mass="0.0125222" pos="0 -0.011046 0.0124786" quat="1 0.1664 0 0" diaginertia="2.67415e-06 2.4559e-06 6.02031e-07" />
+                            <joint name="right_grip_right_follower_joint" class="right_grip_follower" />
+                            <geom class="right_grip_visual" mesh="right_grip_follower" material="right_grip_black" />
+                            <geom class="right_grip_collision" mesh="right_grip_follower" />
+                            <body name="right_grip_right_pad" pos="0 -0.0189 0.01352">
+                              <geom class="right_grip_pad_box1" name="right_grip_right_pad1" />
+                              <geom class="right_grip_pad_box2" name="right_grip_right_pad2" />
+                              <inertial mass="0.0035" pos="0 -0.0025 0.0185" quat="0.707107 0 0 0.707107" diaginertia="4.73958e-07 3.64583e-07 1.23958e-07" />
+                              <geom class="right_grip_visual" mesh="right_grip_pad" />
+                              <body name="right_grip_right_silicone_pad">
+                                <geom class="right_grip_visual" mesh="right_grip_silicone_pad" material="right_grip_black" />
+                              </body>
+                            </body>
+                          </body>
+                        </body>
+                        <body name="right_grip_left_driver" pos="0 -0.0306011 0.054904" quat="0 0 0 1">
+                          <inertial mass="0.00899563" pos="0 0.0177547 0.00107314" quat="0.681301 0.732003 0 0" diaginertia="1.72352e-06 1.60906e-06 3.22006e-07" />
+                          <joint name="right_grip_left_driver_joint" class="right_grip_driver" />
+                          <geom class="right_grip_visual" mesh="right_grip_driver" material="right_grip_gray" />
+                          <geom class="right_grip_collision" mesh="right_grip_driver" />
+                          <body name="right_grip_left_coupler" pos="0 0.0315 -0.0041">
+                            <inertial mass="0.0140974" pos="0 0.00301209 0.0232175" quat="0.705636 -0.0455904 0.0455904 0.705636" diaginertia="4.16206e-06 3.52216e-06 8.88131e-07" />
+                            <joint name="right_grip_left_coupler_joint" class="right_grip_coupler" />
+                            <geom class="right_grip_visual" mesh="right_grip_coupler" material="right_grip_black" />
+                            <geom class="right_grip_collision" mesh="right_grip_coupler" />
+                          </body>
+                        </body>
+                        <body name="right_grip_left_spring_link" pos="0 -0.0132 0.0609" quat="0 0 0 1">
+                          <inertial mass="0.0221642" pos="-8.65005e-09 0.0181624 0.0212658" quat="0.663403 -0.244737 0.244737 0.663403" diaginertia="8.96853e-06 6.71733e-06 2.63931e-06" />
+                          <joint name="right_grip_left_spring_link_joint" class="right_grip_spring_link" />
+                          <geom class="right_grip_visual" mesh="right_grip_spring_link" material="right_grip_black" />
+                          <geom class="right_grip_collision" mesh="right_grip_spring_link" />
+                          <body name="right_grip_left_follower" pos="0 0.055 0.0375">
+                            <inertial mass="0.0125222" pos="0 -0.011046 0.0124786" quat="1 0.1664 0 0" diaginertia="2.67415e-06 2.4559e-06 6.02031e-07" />
+                            <joint name="right_grip_left_follower_joint" class="right_grip_follower" />
+                            <geom class="right_grip_visual" mesh="right_grip_follower" material="right_grip_black" />
+                            <geom class="right_grip_collision" mesh="right_grip_follower" />
+                            <body name="right_grip_left_pad" pos="0 -0.0189 0.01352">
+                              <geom class="right_grip_pad_box1" name="right_grip_left_pad1" />
+                              <geom class="right_grip_pad_box2" name="right_grip_left_pad2" />
+                              <inertial mass="0.0035" pos="0 -0.0025 0.0185" quat="1 0 0 1" diaginertia="4.73958e-07 3.64583e-07 1.23958e-07" />
+                              <geom class="right_grip_visual" mesh="right_grip_pad" />
+                              <body name="right_grip_left_silicone_pad">
+                                <geom class="right_grip_visual" mesh="right_grip_silicone_pad" material="right_grip_black" />
+                              </body>
+                            </body>
+                          </body>
+                        </body>
+                      </body>
+                    </body>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+      <geom name="hip_bracket_-1_0" type="capsule" fromto="-0.325 -0.255 -.0225 -0.325 -0.33 -.0225" size=".019" rgba=".24 .28 .30 1" mass=".015" />
+      <geom name="hip_bracket_-1_1" type="capsule" fromto="0 -0.255 -.0225 0 -0.33 -.0225" size=".019" rgba=".24 .28 .30 1" mass=".015" />
+      <geom name="hip_bracket_-1_2" type="capsule" fromto="0.325 -0.255 -.0225 0.325 -0.33 -.0225" size=".019" rgba=".24 .28 .30 1" mass=".015" />
+      <geom name="hip_bracket_1_0" type="capsule" fromto="-0.325 0.255 -.0225 -0.325 0.33 -.0225" size=".019" rgba=".24 .28 .30 1" mass=".015" />
+      <geom name="hip_bracket_1_1" type="capsule" fromto="0 0.255 -.0225 0 0.33 -.0225" size=".019" rgba=".24 .28 .30 1" mass=".015" />
+      <geom name="hip_bracket_1_2" type="capsule" fromto="0.325 0.255 -.0225 0.325 0.33 -.0225" size=".019" rgba=".24 .28 .30 1" mass=".015" />
+    </body>
+  </worldbody>
+  <actuator>
+    <position name="leg_-1_0_yaw" joint="leg_-1_0_yaw" ctrlrange="-.6981317 .6981317" forcerange="-20 20" kp="550" kv="25" />
+    <position name="leg_-1_0_hip" joint="leg_-1_0_hip" ctrlrange="-1.5 1.5" forcerange="-60 60" kp="900" kv="40" />
+    <position name="leg_-1_0_knee" joint="leg_-1_0_knee" ctrlrange="-1.5 1.5" forcerange="-60 60" kp="900" kv="40" />
+    <position name="leg_-1_1_yaw" joint="leg_-1_1_yaw" ctrlrange="-.6981317 .6981317" forcerange="-20 20" kp="550" kv="25" />
+    <position name="leg_-1_1_hip" joint="leg_-1_1_hip" ctrlrange="-1.5 1.5" forcerange="-60 60" kp="900" kv="40" />
+    <position name="leg_-1_1_knee" joint="leg_-1_1_knee" ctrlrange="-1.5 1.5" forcerange="-60 60" kp="900" kv="40" />
+    <position name="leg_-1_2_yaw" joint="leg_-1_2_yaw" ctrlrange="-.6981317 .6981317" forcerange="-20 20" kp="550" kv="25" />
+    <position name="leg_-1_2_hip" joint="leg_-1_2_hip" ctrlrange="-1.5 1.5" forcerange="-60 60" kp="900" kv="40" />
+    <position name="leg_-1_2_knee" joint="leg_-1_2_knee" ctrlrange="-1.5 1.5" forcerange="-60 60" kp="900" kv="40" />
+    <position name="leg_1_0_yaw" joint="leg_1_0_yaw" ctrlrange="-.6981317 .6981317" forcerange="-20 20" kp="550" kv="25" />
+    <position name="leg_1_0_hip" joint="leg_1_0_hip" ctrlrange="-1.5 1.5" forcerange="-60 60" kp="900" kv="40" />
+    <position name="leg_1_0_knee" joint="leg_1_0_knee" ctrlrange="-1.5 1.5" forcerange="-60 60" kp="900" kv="40" />
+    <position name="leg_1_1_yaw" joint="leg_1_1_yaw" ctrlrange="-.6981317 .6981317" forcerange="-20 20" kp="550" kv="25" />
+    <position name="leg_1_1_hip" joint="leg_1_1_hip" ctrlrange="-1.5 1.5" forcerange="-60 60" kp="900" kv="40" />
+    <position name="leg_1_1_knee" joint="leg_1_1_knee" ctrlrange="-1.5 1.5" forcerange="-60 60" kp="900" kv="40" />
+    <position name="leg_1_2_yaw" joint="leg_1_2_yaw" ctrlrange="-.6981317 .6981317" forcerange="-20 20" kp="550" kv="25" />
+    <position name="leg_1_2_hip" joint="leg_1_2_hip" ctrlrange="-1.5 1.5" forcerange="-60 60" kp="900" kv="40" />
+    <position name="leg_1_2_knee" joint="leg_1_2_knee" ctrlrange="-1.5 1.5" forcerange="-60 60" kp="900" kv="40" />
+    <position class="left_arm_large_actuator" name="left_arm_joint_1" joint="left_arm_joint_1" ctrlrange="-6.283185 6.283185" />
+    <position class="left_arm_large_actuator" name="left_arm_joint_2" joint="left_arm_joint_2" ctrlrange="-2.2497294058206907 2.2497294058206907" />
+    <position class="left_arm_large_actuator" name="left_arm_joint_3" joint="left_arm_joint_3" ctrlrange="-6.283185 6.283185" />
+    <position class="left_arm_large_actuator" name="left_arm_joint_4" joint="left_arm_joint_4" ctrlrange="-2.5795966344476193 2.5795966344476193" />
+    <position class="left_arm_small_actuator" name="left_arm_joint_5" joint="left_arm_joint_5" ctrlrange="-6.283185 6.283185" />
+    <position class="left_arm_small_actuator" name="left_arm_joint_6" joint="left_arm_joint_6" ctrlrange="-2.0996310901491784 2.0996310901491784" />
+    <position class="left_arm_small_actuator" name="left_arm_joint_7" joint="left_arm_joint_7" ctrlrange="-6.283185 6.283185" />
+    <general class="left_grip_2f85" name="left_grip_fingers_actuator" tendon="left_grip_split" forcerange="-5 5" ctrlrange="0 255" gainprm="0.3137255 0 0" biasprm="0 -100 -10" />
+    <position class="right_arm_large_actuator" name="right_arm_joint_1" joint="right_arm_joint_1" ctrlrange="-6.283185 6.283185" />
+    <position class="right_arm_large_actuator" name="right_arm_joint_2" joint="right_arm_joint_2" ctrlrange="-2.2497294058206907 2.2497294058206907" />
+    <position class="right_arm_large_actuator" name="right_arm_joint_3" joint="right_arm_joint_3" ctrlrange="-6.283185 6.283185" />
+    <position class="right_arm_large_actuator" name="right_arm_joint_4" joint="right_arm_joint_4" ctrlrange="-2.5795966344476193 2.5795966344476193" />
+    <position class="right_arm_small_actuator" name="right_arm_joint_5" joint="right_arm_joint_5" ctrlrange="-6.283185 6.283185" />
+    <position class="right_arm_small_actuator" name="right_arm_joint_6" joint="right_arm_joint_6" ctrlrange="-2.0996310901491784 2.0996310901491784" />
+    <position class="right_arm_small_actuator" name="right_arm_joint_7" joint="right_arm_joint_7" ctrlrange="-6.283185 6.283185" />
+    <general class="right_grip_2f85" name="right_grip_fingers_actuator" tendon="right_grip_split" forcerange="-5 5" ctrlrange="0 255" gainprm="0.3137255 0 0" biasprm="0 -100 -10" />
+  </actuator>
+  <contact>
+    <exclude body1="left_grip_base" body2="left_grip_left_driver" />
+    <exclude body1="left_grip_base" body2="left_grip_right_driver" />
+    <exclude body1="left_grip_base" body2="left_grip_left_spring_link" />
+    <exclude body1="left_grip_base" body2="left_grip_right_spring_link" />
+    <exclude body1="left_grip_right_coupler" body2="left_grip_right_follower" />
+    <exclude body1="left_grip_left_coupler" body2="left_grip_left_follower" />
+    <exclude body1="right_grip_base" body2="right_grip_left_driver" />
+    <exclude body1="right_grip_base" body2="right_grip_right_driver" />
+    <exclude body1="right_grip_base" body2="right_grip_left_spring_link" />
+    <exclude body1="right_grip_base" body2="right_grip_right_spring_link" />
+    <exclude body1="right_grip_right_coupler" body2="right_grip_right_follower" />
+    <exclude body1="right_grip_left_coupler" body2="right_grip_left_follower" />
+  </contact>
+  <tendon>
+    <fixed name="left_grip_split">
+      <joint joint="left_grip_right_driver_joint" coef="0.5" />
+      <joint joint="left_grip_left_driver_joint" coef="0.5" />
+    </fixed>
+    <fixed name="right_grip_split">
+      <joint joint="right_grip_right_driver_joint" coef="0.5" />
+      <joint joint="right_grip_left_driver_joint" coef="0.5" />
+    </fixed>
+  </tendon>
+  <equality>
+    <connect anchor="0 0 0" body1="left_grip_right_follower" body2="left_grip_right_coupler" solimp="0.95 0.99 0.001" solref="0.005 1" />
+    <connect anchor="0 0 0" body1="left_grip_left_follower" body2="left_grip_left_coupler" solimp="0.95 0.99 0.001" solref="0.005 1" />
+    <joint joint1="left_grip_right_driver_joint" joint2="left_grip_left_driver_joint" polycoef="0 1 0 0 0" solimp="0.95 0.99 0.001" solref="0.005 1" />
+    <connect anchor="0 0 0" body1="right_grip_right_follower" body2="right_grip_right_coupler" solimp="0.95 0.99 0.001" solref="0.005 1" />
+    <connect anchor="0 0 0" body1="right_grip_left_follower" body2="right_grip_left_coupler" solimp="0.95 0.99 0.001" solref="0.005 1" />
+    <joint joint1="right_grip_right_driver_joint" joint2="right_grip_left_driver_joint" polycoef="0 1 0 0 0" solimp="0.95 0.99 0.001" solref="0.005 1" />
+  </equality>
+  <keyframe>
+    <key name="review" qpos="1.15 .12 .60576 .7071067811865476 0 0 .7071067811865476 1.14 0.69 0.645 1.0 0.0 0.0 0.0 1.49 0.51 0.65 1.0 0.0 0.0 0.0 1.5 0.12 0.625 1.0 0.0 0.0 0.0 1.47 0.83 0.615 1.0 0.0 0.0 0.0 -1.125 -0.9375 0.4375 0.9702957262759965 0.0 0.0 0.24192189559966773 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.26179939 3.141592653589793 -2.26892803 0.0 0.95993109 1.5707963267948966 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.26179939 3.141592653589793 -2.26892803 0.0 0.95993109 1.5707963267948966 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0" ctrl="0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.26179939 3.141592653589793 -2.26892803 0.0 0.95993109 1.5707963267948966 0.0 0.0 0.26179939 3.141592653589793 -2.26892803 0.0 0.95993109 1.5707963267948966 0.0" />
+  </keyframe>
+</mujoco>

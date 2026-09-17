@@ -1,25 +1,11 @@
-# Python and local environments
 __pycache__/
 *.py[cod]
 .venv/
-venv/
 .pytest_cache/
-.ruff_cache/
-*.egg-info/
-build/
-dist/
-
-# Local configuration
+.DS_Store
 .env
 .env.*
-!.env.example
-.DS_Store
-.idea/
-.vscode/
-
-# Generated runs and large media; curated data can live in recorded/ or fixtures/
 outputs/
-scratch/
 downloads/
 MUJOCO_LOG.TXT
 *.log
