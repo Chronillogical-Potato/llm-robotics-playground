@@ -2,9 +2,7 @@
 
 import json
 import numpy as np
-import mujoco
-from firmware import Firmware, ROOT
-from controller import Controller
+from firmware import Firmware
 
 
 class PhysicalFirmware(Firmware):

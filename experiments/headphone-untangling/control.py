@@ -5,7 +5,6 @@ and all collision geometry remain unchanged. Integration settings are recorded
 with each run, and failed searches are kept distinct from accepted results.
 """
 
-import argparse
 import hashlib
 import json
 import time

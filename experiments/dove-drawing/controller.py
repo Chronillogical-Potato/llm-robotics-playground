@@ -1,6 +1,5 @@
 """GPT-authored scripted controller. Task intelligence is outside fixed firmware."""
 
-import json
 from pathlib import Path
 import numpy as np
 import mujoco

@@ -4,7 +4,7 @@ process's I/O, not Python execution access to the trusted simulation process.
 """
 
 import argparse, base64, io, json, sys
-import numpy as np, mujoco
+import mujoco
 from control import Firmware
 from pathlib import Path
 

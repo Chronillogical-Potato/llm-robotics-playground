@@ -1,11 +1,9 @@
 """Static hypotheses for stock fingertips pinching a selected cable span."""
 
-import argparse
-import json
 import numpy as np
 import mujoco
 from scipy.spatial.transform import Rotation
-from environment import ROOT, load, geometry_contacts
+from environment import geometry_contacts
 from strategy import solve_pose, fingertip_center
 
 

@@ -1,4 +1,4 @@
-import argparse, json, math
+import argparse, json
 import numpy as np, mujoco
 from pathlib import Path
 

@@ -6,7 +6,6 @@ These are environment checks, not a manipulation policy or a grasp success test.
 from pathlib import Path
 import hashlib
 import json
-import time
 import mujoco
 import numpy as np
 from scipy.optimize import least_squares

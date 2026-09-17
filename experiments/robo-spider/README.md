@@ -8,30 +8,29 @@ A six-legged robot with two Kinova arms picks up a mug and block, carries them a
 
 ## Run
 
-After the [root setup](../../README.md#start-here), run from this directory:
+Complete the [setup](../../README.md#setup), then run from the repository root:
 
 ```sh
+cd experiments/robo-spider
 python run.py
 python validate.py
 python render.py
 ```
 
-Or download the selected recording from the repository root with `python fetch.py robo-spider`, then run just validation and rendering. `python render.py --preview` produces three frames. Generated files go in `outputs/`.
+To replay the recorded demo, run `python fetch.py robo-spider` from the repository root, then run the validation and rendering commands above. Add `--preview` to the render command for three still frames. All generated files go in `outputs/`.
 
-## How it works
+## Setup and controller
 
-`mission.py` sets the route and manipulation stages. `control.py` handles gait, arm IK, bounded actuator commands, and gripper targets. `scene.xml` is the final assembled robot and environment. `pilot.py` also exposes a JSON-lines drive/hand interface; `--camera` adds head and wrist images.
+The robot holds the mug and block through grip pressure and friction. `mission.py` tells it where to go and when to pick up or release each object. `control.py` handles the legs, arms, and grippers. It reads positions from the simulator.
 
-The model wrote and revised the environment and controller with human feedback. The recorded controller uses known world coordinates and simulator state; its available camera interface was not used as a live VLM policy. The task brief was to make an unusual legged, dual-arm robot perform a useful transfer.
+For new model experiments, `pilot.py` provides a JSON-lines interface for driving and moving the hands. Its `--camera` option adds head and wrist images.
 
-## Recorded outcome
+## Result
 
-Both objects were placed upright and released after 97.602 simulated seconds. Placement errors were 1.9 mm and 2.5 mm. The historical run checked contacts every physics step (500 Hz), with no robot/table/barrier or leg/chassis contacts, and respected configured actuator limits. Small historical metrics and scene hashes are in `recording.json`.
+Both objects end upright on the second table after **97.6 simulated seconds**, within **1.9 mm and 2.5 mm** of their targets. The robot stayed clear of the tables and barrier, and its legs stayed clear of its body. Motor forces stayed within the limits set in the simulation.
 
-The objects remain free bodies, held by contact and friction. This is a tuned route through one fixed layout. General navigation, perturbations, and physical hardware were not evaluated.
+A fresh run reproduced the saved trajectory exactly. The video plays at 2× and ends with a result card. Detailed metrics are in the downloaded `outputs/action_results.json`.
 
-The selected video plays recorded states at 2× and adds a final result card. Public-package checks include a full controller rerun matching the recorded trajectory exactly, saved-run validation, replay previews, and compiled-model equivalence after asset-path changes.
+## Credits
 
-## Assets
-
-Original six-legged body, with [Menagerie Kinova and Robotiq assets](../../assets/README.md). These retain their own licenses. Original code: [MIT](../../LICENSE).
+Original six-legged body with [Menagerie Kinova Gen3 and Robotiq 2F-85 models](../../assets/README.md). Controller code: [MIT](../../LICENSE).

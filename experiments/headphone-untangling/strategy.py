@@ -4,14 +4,11 @@ This is planning, not a manipulation rollout. Joint assignments in the grasp
 scan are hypothetical configurations, never presented as executed movements.
 """
 
-import argparse
-import hashlib
-import json
 import numpy as np
 import mujoco
 from scipy.optimize import least_squares
 from scipy.spatial.transform import Rotation
-from environment import ROOT, load, nodes, aloha_checks, geometry_contacts
+from environment import nodes, aloha_checks, geometry_contacts
 
 
 def endpoint_analysis(model, data):

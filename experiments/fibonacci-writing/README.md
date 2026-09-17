@@ -1,13 +1,6 @@
 # Fibonacci writing
 
-A floating-base Unitree G1 holds a marker through finger contact and writes this program on a whiteboard:
-
-```python
-a, b = 0, 1
-for _ in range(10):
-    a, b = b, a + b
-    print(a)
-```
+A Unitree G1 humanoid holds a marker and writes a short Fibonacci program on a whiteboard.
 
 [Watch the demo · 4×](https://github.com/dimentary/llm-robotics-playground/releases/download/v0.1.0/fibonacci-writing.mp4)
 
@@ -15,33 +8,30 @@ for _ in range(10):
 
 ## Run
 
-After the [root setup](../../README.md#start-here), run from this directory:
+Complete the [setup](../../README.md#setup), then run from the repository root:
 
 ```sh
+cd experiments/fibonacci-writing
 python run.py
 python validate.py
 python ending.py
 python render.py --viewer
 ```
 
-`ending.py` simulates the separate waist-turn ending. For writing alone, skip it and use `python render.py`. Add `--preview` to render selected frames only. Generated files go in `outputs/`.
+To replay the recorded demo, run `python fetch.py fibonacci-writing` from the repository root, then run only `python validate.py` and `python render.py --viewer` inside this directory. Add `--preview` for selected still frames. All generated files go in `outputs/`.
 
-To inspect the selected recording instead, run `python fetch.py fibonacci-writing` from the repository root, then use validation and rendering without rerunning the writing or ending.
+## Setup and controller
 
-## How it works
+The robot stands on its own feet and starts with the marker already in its hand. The marker is held by finger pressure and friction, with no fixed attachment. The finger controls and contact settings are tuned for writing.
 
-`writer.py` follows the glyph paths in `strokes.py`, using IK and contact-force feedback. `scene.xml` and `initial_grasp.npz` define the physical setup. Every visible ink footprint comes from measured, loaded marker/board contact.
+`writer.py` follows the letter paths in `strokes.py` and adjusts the arm using joint positions and contact forces. Ink appears where the marker presses against the board. `ending.py` makes the robot turn toward the camera after writing.
 
-The marker starts already grasped; pickup is outside the task. The pregrasp was prepared with temporary support, removed before writing. The humanoid stands through foot contact, and the marker is a free body. Finger gains and contact parameters were tuned. The model authored and revised this controller with human feedback; it is not live image-based model control. The task brief was to physically write a short Fibonacci program, rather than compute numbers during the motion.
+## Result
 
-## Recorded outcome
+The robot finishes **52 strokes in 272.21 simulated seconds**. The marker leaves **4,803 contact marks**, with a median distance of **0.72 mm** from the intended path. Only the marker tip touches the board, and it leaves no extra ink as the arm pulls away. The downloaded `outputs/results.json` contains the measurements.
 
-The selected run completed all 52 strokes in 272.21 simulated seconds, depositing 4,803 footprints. Median tip tracking error was 0.72 mm; no non-tip board contacts or extra ink during withdrawal were reported. See `recording.json` for the historical summary.
+The video plays at 4× with a close-up of the writing. It zooms in as the robot works and includes the final turn toward the camera. The unused top of the board is cropped in the render. Startup, a fresh first stroke, the saved results, and replay rendering have been checked.
 
-The video uses 4× playback, a synchronized ink inset, a camera zoom, and a separately simulated 12-second waist turn. The renderer trims the unused top of the board for presentation; the physics scene is unchanged.
+## Credits
 
-Public-package checks include controller startup and a newly simulated first stroke, the recorded-state/contact/torque checks, replay previews, and compiled-model equivalence. These checks do not establish robustness across writing styles or starting grasps.
-
-## Assets
-
-[Menagerie Unitree G1](../../assets/README.md), with its original model license. Original code: [MIT](../../LICENSE).
+[Menagerie Unitree G1 model](../../assets/README.md). Controller code: [MIT](../../LICENSE).

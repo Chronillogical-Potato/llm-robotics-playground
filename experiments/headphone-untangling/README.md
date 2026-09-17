@@ -1,14 +1,14 @@
 # Headphone untangling
 
-Two ALOHA arms open two tangled regions in a headphone cable using support, lifting, spreading, and local free-end draws.
+Two ALOHA arms work through two tangles in a headphone cable by lifting the wire and pulling the loops apart.
 
 [Watch the demo · 1×, edited](https://github.com/dimentary/llm-robotics-playground/releases/download/v0.1.0/headphone-untangling.mp4)
 
 ![Headphone untangling](preview.png)
 
-## Inspect the recorded attempt
+## Replay
 
-After the [root setup](../../README.md#start-here), download the replay from the repository root:
+Complete the [setup](../../README.md#setup), then run from the repository root:
 
 ```sh
 python fetch.py headphone-untangling
@@ -18,33 +18,29 @@ python render.py --name two_clusters_current --output demo \
   --elevation -38 --azimuth 75 --distance .96 --lookat -.035 .015 .07
 ```
 
-Add `--stills` for just the first and last frames. The bundle contains the continuous source trajectory, start/end states, full run report, and original edit manifest. Rendering without edit arguments shows the full source attempt.
+Add `--stills` for the first and last frames. The download contains the source trajectory, start/end states, run report, and edit settings. Generated files go in `outputs/`.
 
-## Try a new attempt
+## Run a controller stage
 
-Run from this directory:
+From this directory:
 
 ```sh
 python validate.py --seconds .4
-python run.py --state settled --name middle_attempt --cluster middle --stage open --dt .0005
+python run.py --state settled --name middle --cluster middle --stage open --dt .0005
 ```
 
-This runs a guarded local opening stage. The published video was assembled from continuous accepted stages with retries and human-guided revisions; this command is not a one-shot recreation of the complete demonstration. `python run.py --help` lists continuation stages. Inspect the saved report before continuing from a checkpoint.
+This runs the first opening stage. `run.py` works one stage at a time; use the replay above to watch the full demo. Run `python run.py --help` for the next-stage options, and check each saved report before continuing.
 
-`python verify_release.py --state NAME` checks a saved endpoint for strict full release. Its JSON verdict is authoritative; the selected demonstration has not passed that completion criterion. To inspect the scene interactively, use `mjpython viewer.py --state initial` on macOS, or `python viewer.py --state initial` elsewhere. Generated files go in `outputs/`.
+`python verify_release.py --state NAME` checks a saved endpoint for full release. For interactive viewing, use `mjpython viewer.py --state initial` on macOS or `python viewer.py --state initial` elsewhere.
 
-## Setup and outcome
+## Setup and result
 
-`scene.xml` and `task.json` define 282 cable segments and two knot/caught-bight regions. Robot geometry and actuator settings match the pinned ALOHA model. The cable has self-collision, with no anchored ends, hidden grasp attachments, or animated cable motion.
+The wire is made of 282 connected segments that can collide with each other. Each tangled region contains a knot and a loop caught in it. The arms use the stock ALOHA controls and hold the wire through contact. The planner reads cable positions from the simulator; I gave feedback on the layout and untangling strategy.
 
-The model inspected simulator state and rendered results, wrote actuator-control code, and revised strategies with substantial human feedback. The user helped select the layout, simplify entanglements, favor local lifting/relaxation, and choose the presentation. Exact model settings and a single reusable original prompt were not preserved.
+**Both tangled sections open up.** Some loose overlaps remain at the end, and the cable has not been verified as fully untangled.
 
-Both local tangled regions opened. Loose overlaps remain at the selected endpoint, so this is not a fully verified untangling solve. The edit omits source 4.230–5.960 s of grasp retries, stops at 29.259 s, and holds the final pose for one second. It changes presentation, not the controller's efficiency. No intermediate poses are synthesized.
+The video plays the recorded motion at normal speed. It cuts the interval from 4.230 to 5.960 s, ends at 29.259 s, and holds the last pose for one second. Every pose comes from the simulation. The scene, startup, settling, reach, and replay checks pass.
 
-The portable scene changes asset paths only. `recording.json` retains both scene hashes; downloaded checkpoints carry the new hash plus original provenance, while numerical recording arrays are unchanged. Public-package checks include asset integrity, compiled-model equivalence, startup, settling/reach checks, and replay previews. The full guided solution was not rerun during packaging.
+## Credits
 
-Inspired by [Qineng Wang's rope-threading experiment](https://x.com/qineng_wang/status/2099893504658866561).
-
-## Assets
-
-[Menagerie ALOHA 2](../../assets/README.md), under its original BSD license. Headphone geometry is approximate. Original code: [MIT](../../LICENSE).
+[Menagerie ALOHA 2 model](../../assets/README.md); approximate headphone geometry. Inspired by [Qineng Wang's rope-threading experiment](https://x.com/qineng_wang/status/2099893504658866561). Controller code: [MIT](../../LICENSE).
