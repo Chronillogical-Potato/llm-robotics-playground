@@ -12,12 +12,12 @@ Complete the [setup](../../README.md#setup), then run from the repository root:
 
 ```sh
 cd experiments/dove-drawing
-python run.py
-python validate.py
-python render.py
+uv run python run.py
+uv run python validate.py
+uv run python render.py
 ```
 
-To replay the recorded demo, run `python fetch.py dove-drawing` from the repository root, then run the validation and rendering commands above. Add `--preview` for selected still frames. All generated files go in `outputs/`.
+To replay the recorded demo, run `uv run python fetch.py dove-drawing` from the repository root, then run the validation and rendering commands above. Add `--preview` for selected still frames. All generated files go in `outputs/`.
 
 ## Setup and controller
 

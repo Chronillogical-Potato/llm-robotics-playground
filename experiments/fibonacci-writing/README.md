@@ -12,13 +12,13 @@ Complete the [setup](../../README.md#setup), then run from the repository root:
 
 ```sh
 cd experiments/fibonacci-writing
-python run.py
-python validate.py
-python ending.py
-python render.py --viewer
+uv run python run.py
+uv run python validate.py
+uv run python ending.py
+uv run python render.py --viewer
 ```
 
-To replay the recorded demo, run `python fetch.py fibonacci-writing` from the repository root, then run only `python validate.py` and `python render.py --viewer` inside this directory. Add `--preview` for selected still frames. All generated files go in `outputs/`.
+To replay the recorded demo, run `uv run python fetch.py fibonacci-writing` from the repository root, then run only `uv run python validate.py` and `uv run python render.py --viewer` inside this directory. Add `--preview` for selected still frames. All generated files go in `outputs/`.
 
 ## Setup and controller
 

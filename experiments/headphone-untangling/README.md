@@ -11,9 +11,9 @@ Two ALOHA arms work through two tangles in a headphone cable by lifting the wire
 Complete the [setup](../../README.md#setup), then run from the repository root:
 
 ```sh
-python fetch.py headphone-untangling
+uv run python fetch.py headphone-untangling
 cd experiments/headphone-untangling
-python render.py --name two_clusters_current --output demo \
+uv run python render.py --name two_clusters_current --output demo \
   --end-time 29.259 --omit 4.23 5.96 --end-hold 1 \
   --elevation -38 --azimuth 75 --distance .96 --lookat -.035 .015 .07
 ```
@@ -25,13 +25,13 @@ Add `--stills` for the first and last frames. The download contains the source t
 From this directory:
 
 ```sh
-python validate.py --seconds .4
-python run.py --state settled --name middle --cluster middle --stage open --dt .0005
+uv run python validate.py --seconds .4
+uv run python run.py --state settled --name middle --cluster middle --stage open --dt .0005
 ```
 
-This runs the first opening stage. `run.py` works one stage at a time; use the replay above to watch the full demo. Run `python run.py --help` for the next-stage options, and check each saved report before continuing.
+This runs the first opening stage. `run.py` works one stage at a time; use the replay above to watch the full demo. Run `uv run python run.py --help` for the next-stage options, and check each saved report before continuing.
 
-`python verify_release.py --state NAME` checks a saved endpoint for full release. For interactive viewing, use `mjpython viewer.py --state initial` on macOS or `python viewer.py --state initial` elsewhere.
+`uv run python verify_release.py --state NAME` checks a saved endpoint for full release. For interactive viewing, use `uv run mjpython viewer.py --state initial` on macOS or `uv run python viewer.py --state initial` elsewhere.
 
 ## Setup and result
 

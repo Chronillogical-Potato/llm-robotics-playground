@@ -10,4 +10,4 @@ These robot models come from [MuJoCo Menagerie](https://github.com/google-deepmi
 | Unitree G1 | Fibonacci writing | [BSD-3-Clause](unitree_g1/LICENSE), Unitree Robotics |
 | Shadow Hand | Dove drawing | [Apache-2.0](shadow_hand/LICENSE) |
 
-The model files are unchanged from that source. Run `python check.py` from the repository root to compare them with the checksums in [manifest.json](manifest.json). Each experiment has its own `scene.xml` for the task setup.
+The model files are unchanged from that source. Run `uv run python check.py` from the repository root to compare them with the checksums in [manifest.json](manifest.json). Each experiment has its own `scene.xml` for the task setup.
