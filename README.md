@@ -2,7 +2,7 @@
 
 A library of experiments using frontier LLMs/VLMs for robotics tasks, currently focusing on GPT-6 Astra.
 
-Each experiment includes a MuJoCo environment, controller code, and a recorded run. Current tasks cover cable untangling, mobile manipulation, writing, and drawing.
+The earlier demos include MuJoCo environments and controllers. The Baoding experiment adds a trained policy checkpoint and a recorded PhysX rollout with a kinematic MuJoCo replay. Current tasks cover manipulation, locomotion, writing, drawing, and dexterous in-hand motion.
 
 | Experiment | Preview | Demo |
 | --- | --- | --- |
@@ -10,8 +10,9 @@ Each experiment includes a MuJoCo environment, controller code, and a recorded r
 | [Robo spider](experiments/robo-spider) | [![Spider](experiments/robo-spider/preview.png)](experiments/robo-spider) | A six-legged robot carries and places two objects using two arms. |
 | [Fibonacci writing](experiments/fibonacci-writing) | [![Fibonacci](experiments/fibonacci-writing/preview.png)](experiments/fibonacci-writing) | A humanoid writes a Python program on a whiteboard. |
 | [Dove drawing](experiments/dove-drawing) | [![Dove](experiments/dove-drawing/preview.png)](experiments/dove-drawing) | An articulated hand draws a dove with a pencil. |
+| [Baoding balls](experiments/baoding-balls) | [![Baoding balls](experiments/baoding-balls/preview.png)](experiments/baoding-balls) | [Watch 12 seconds at 1×](experiments/baoding-balls/demo.mp4): a Sharpa hand rotates two balls in simulation. |
 
-[Watch or download the demos](https://github.com/dimentary/llm-robotics-playground/releases/tag/v0.1.0).
+[Watch or download the earlier demos](https://github.com/dimentary/llm-robotics-playground/releases/tag/v0.1.0). The Baoding video is linked directly above.
 
 ## Setup
 
@@ -26,7 +27,7 @@ uv sync --locked
 uv run python check.py
 ```
 
-uv handles Python 3.14 and the project environment. Pick an experiment and follow its README to run it. New results go in its `outputs/` folder, which Git ignores. The experiments share the robot models in `assets/`.
+uv handles Python 3.14 and the project environment. Pick an experiment and follow its README to run it. New results go in its `outputs/` folder, which Git ignores. The earlier experiments share robot models in `assets/`; the Baoding model is included with that experiment.
 
 ## Replay a demo
 
@@ -41,10 +42,12 @@ uv run python render.py --preview
 
 To try another demo, replace `robo-spider` with its folder name and follow that experiment's replay instructions. Downloads are checked against [recordings.json](recordings.json). If replay files already exist in `outputs/`, move them aside before downloading again.
 
+The [Baoding demo](experiments/baoding-balls) is already included with its selected trace and video; it does not use `fetch.py`.
+
 ## How the experiments work
 
-The first experiments used GPT-6 Astra in Codex to build the environments and write the robot-control code. I guided the task setup and gave feedback along the way. The controllers read positions and contacts from the simulator. The code here runs locally without calling a model API. Each experiment's README explains its setup and what the demo shows.
+The first experiments used GPT-6 Astra in Codex to build the environments and write the robot-control code. I guided the task setup and gave feedback along the way. The Baoding demo instead uses an RL policy trained in Isaac Lab/PhysX. Replay and validation here run locally without calling a model API. Each experiment's README explains its setup and what the demo shows.
 
 ## License
 
-Original code is [MIT licensed](LICENSE). Robot models retain their [upstream licenses](assets/README.md). The dove artwork and artwork-derived assets are excluded from the MIT grant; see the [drawing credits](experiments/dove-drawing/README.md#credits).
+Original code is [MIT licensed](LICENSE). Robot models retain their upstream licenses: [shared assets](assets/README.md) and the [Sharpa model](experiments/baoding-balls/model/LICENSE.txt). The dove artwork and artwork-derived assets are excluded from the MIT grant; see the [drawing credits](experiments/dove-drawing/README.md#credits).
