@@ -11,5 +11,6 @@ MUJOCO_LOG.TXT
 *.log
 *.mp4
 !experiments/baoding-balls/demo.mp4
+experiments/baoding-balls/vendor/
 *.mov
 *.webm
